@@ -1,0 +1,72 @@
+{
+    "name": "Department of Transportation",
+    "description": "Welcome to the Facebook page of the U.S. Department of Transportation.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/9541-department-of-transportation.jpg",
+    "tags": [
+        "api provider",
+        "have api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/department-of-transportation\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Department of Transportation",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/9541-department-of-transportation.jpg",
+            "humanURL": "http:\/\/www.dot.gov",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/department-of-transportation-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/department-of-transportation-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/u-s-department-of-transportation"
+        },
+        {
+            "type": "Developers",
+            "url": "http:\/\/www.dot.gov\/developer"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@dot.gov"
+        },
+        {
+            "type": "Email",
+            "url": "Denise.P.Wright@dot.gov"
+        },
+        {
+            "type": "Email",
+            "url": "DOTCFO@dot.gov"
+        },
+        {
+            "type": "Email",
+            "url": "Edward.c.ramos@dot.gov"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/USDOT"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/www.dot.gov"
+        },
+        {
+            "type": "Wikipedia",
+            "url": "http:\/\/en.wikipedia.org\/wiki\/Department_of_Transportation"
+        }
+    ]
+}

@@ -5,8 +5,7 @@ url: >2-
 apis:
   - aid: department-of-transportation:department-of-transportation
     name: Department of Transportation
-    tags:
-      - API
+    tags: []
     humanURL: https://www.transportation.gov/developer
     properties:
       - url: https://www.transportation.gov/developer

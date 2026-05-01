@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/department-of-transportation/schemas/vehicle.json",
+  "title": "Vehicle (NHTSA vPIC)",
+  "description": "A vehicle decoded via the NHTSA vPIC API.",
+  "type": "object",
+  "properties": {
+    "VIN": { "type": "string", "minLength": 11, "maxLength": 17 },
+    "Make": { "type": "string" },
+    "Model": { "type": "string" },
+    "ModelYear": { "type": ["string", "integer"] },
+    "Manufacturer": { "type": "string" },
+    "ManufacturerId": { "type": ["string", "integer"] },
+    "VehicleType": { "type": "string" },
+    "BodyClass": { "type": "string" },
+    "DriveType": { "type": "string" },
+    "EngineCylinders": { "type": ["string", "integer"] },
+    "EngineHP": { "type": ["string", "integer"] },
+    "FuelTypePrimary": { "type": "string" },
+    "PlantCity": { "type": "string" },
+    "PlantState": { "type": "string" },
+    "PlantCountry": { "type": "string" },
+    "TransmissionStyle": { "type": "string" },
+    "Series": { "type": ["string", "null"] },
+    "Trim": { "type": ["string", "null"] },
+    "WheelBaseShort": { "type": ["string", "null"] },
+    "WheelBaseLong": { "type": ["string", "null"] },
+    "GVWR": { "type": "string" }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/department-of-transportation/schemas/carrier.json",
+  "title": "Motor Carrier (FMCSA)",
+  "description": "A motor carrier registered with the Federal Motor Carrier Safety Administration.",
+  "type": "object",
+  "required": ["dotNumber", "legalName"],
+  "properties": {
+    "dotNumber": { "type": "integer" },
+    "legalName": { "type": "string" },
+    "dbaName": { "type": ["string", "null"] },
+    "ein": { "type": "string" },
+    "allowedToOperate": { "type": "string", "enum": ["Y", "N"] },
+    "phyStreet": { "type": "string" },
+    "phyCity": { "type": "string" },
+    "phyState": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "phyZipcode": { "type": "string" },
+    "telephone": { "type": "string" },
+    "totalDrivers": { "type": "integer", "minimum": 0 },
+    "totalPowerUnits": { "type": "integer", "minimum": 0 },
+    "statusCode": { "type": "string" },
+    "mcs150Date": { "type": "string", "format": "date" }
+  }
+}

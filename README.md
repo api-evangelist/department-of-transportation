@@ -1,51 +1,63 @@
-# Department of Transportation (department-of-transportation)
+# Department of Transportation
 
-Contact Us. Office of the Chief Information Officer. 1200 New Jersey Ave, SE
-Washington, DC 20590 United States. Phone: (202) 366-9201 Fax: (202) 366-7373
-If you are deaf, hard of hearing, or have a speech disability, please dial
-7-1-1 to access telecommunications relay services.
+The U.S. Department of Transportation (DOT) and its operating administrations - NHTSA, FMCSA, FAA, FRA, FTA, MARAD, PHMSA, and BTS - publish a number of public APIs covering vehicles, motor carriers, aviation, transit, freight, and transportation statistics. This repository inventories the catalog as an APIs.yml index plus generated artifacts for the APIs that have a real, public surface area.
 
-**URL:** [Visit APIs.json URL](
-https://raw.githubusercontent.com/api-evangelist/department-of-transportation/refs/heads/main/apis.yml)
+**APIs.yml:** [apis.yml](https://raw.githubusercontent.com/api-evangelist/department-of-transportation/main/apis.yml)
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consumer 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consuming
+- **Access:** 3rd-Party
 
-## Tags:
+## Tags
 
- - Federal Government
+- Federal Government
+- Transportation
+- Vehicles
+- Aviation
+- Motor Carriers
 
-## Timestamps
+## Repository Layout
 
-- **Created:** 2024-12-03 
-- **Modified:** 2024-12-29 
+- [`apis.yml`](apis.yml) — APIs.json/yml index
+- [`openapi/`](openapi/) — OpenAPI 3.1 specifications
+- [`json-schema/`](json-schema/) — JSON Schemas for vehicles, recalls, and carriers
+- [`json-ld/`](json-ld/) — JSON-LD context aligning DOT terms to schema.org
+- [`vocabulary/`](vocabulary/) — Controlled vocabulary across NHTSA, FMCSA, FAA, FTA, BTS
+- [`capabilities/`](capabilities/) — Capability catalog
+- [`rules/`](rules/) — Access, rate-limit, and attribution rules
+- [`examples/`](examples/) — Representative response payloads
 
-## APIs
+## APIs in this Index
 
-### Department of Transportation
+### NHTSA
+- **vPIC API** — VIN decoding, makes, models, manufacturers
+- **Vehicle Safety API** — recalls, complaints, investigations, 5-Star Safety Ratings
 
-Contact Us. Office of the Chief Information Officer. 1200 New Jersey Ave,
-SE Washington, DC 20590 United States. Phone: (202) 366-9201 Fax: (202)
-366-7373 If you are deaf, hard of hearing, or have a speech disability,
-please dial 7-1-1 to access telecommunications relay services.
+### FMCSA
+- **QCMobile API** — motor carrier registration, authority, inspections, crashes
 
-**Human URL:** [https://www.transportation.gov/developer](https://www.transportation.gov/developer)
+### FAA
+- **Airport Status API** — real-time airport status, delays, weather
 
+### Other Administrations
+- **BTS Data Portal** — Bureau of Transportation Statistics datasets
+- **FRA Safety Data** — rail safety analytics
+- **FTA National Transit Database** — public-transit data
+- **PHMSA Pipeline Safety Data** — pipeline incidents and operators
 
-#### Tags:
+## Authentication
 
- - API
+- **NHTSA vPIC, NHTSA Vehicle Safety, FAA Airport Status** — public, no key required
+- **FMCSA QCMobile** — webKey query parameter
+- **BTS, FTA, FRA, PHMSA** — primarily downloadable datasets
 
-#### Properties
+## Data License
 
-- [Documentation](https://www.transportation.gov/developer)
+DOT data is U.S. government work in the public domain. Attribute the originating administration when republishing.
 
 ## Maintainers
 
 **FN:** Kin Lane
-
-**Email:** info@apievangelist.com
-
+**Email:** kin@apievangelist.com

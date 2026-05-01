@@ -1,0 +1,33 @@
+name: Department of Transportation API Rules
+description: >-
+  Rules and constraints governing access to DOT public APIs across NHTSA,
+  FMCSA, and FAA.
+rules:
+  - id: vin-rate-limits
+    description: NHTSA vPIC enforces an automated rate limit; consumers must throttle decoder traffic and prefer the batch endpoint (max 50 VINs per request) for bulk workloads.
+    appliesTo: ["nhtsa-vpic-api"]
+    severity: must
+  - id: not-bulk-vin-lookups
+    description: NHTSA vPIC is intended for application use, not bulk VIN lookups; consumers running large-scale screens must coordinate with NHTSA.
+    appliesTo: ["nhtsa-vpic-api"]
+    severity: must
+  - id: vin-modelyear-disambiguation
+    description: VINs older than model year 2010 may require the modelyear query parameter to disambiguate the 30-year VIN cycle.
+    appliesTo: ["nhtsa-vpic-api"]
+    severity: should
+  - id: recall-data-freshness
+    description: Recall data must be refreshed at least daily for safety-critical use cases; do not surface stale recall status to end users.
+    appliesTo: ["nhtsa-recalls-api"]
+    severity: must
+  - id: fmcsa-webkey-required
+    description: All FMCSA QCMobile endpoints require a webKey query parameter issued by FMCSA.
+    appliesTo: ["fmcsa-qcmobile-api"]
+    severity: must
+  - id: faa-rate-limits
+    description: FAA Airport Status responses must be cached for at least one minute and respect documented rate limits.
+    appliesTo: ["faa-airport-status-api"]
+    severity: should
+  - id: public-domain-attribution
+    description: DOT data is U.S. government work in the public domain; attribute the originating administration when republishing.
+    appliesTo: ["*"]
+    severity: should

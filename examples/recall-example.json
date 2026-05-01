@@ -1,0 +1,19 @@
+{
+  "Count": 1,
+  "Message": "Results returned successfully",
+  "results": [
+    {
+      "NHTSACampaignNumber": "26V001000",
+      "Manufacturer": "Example Motors LLC",
+      "ReportReceivedDate": "01/15/2026",
+      "Component": "AIR BAGS",
+      "Summary": "The driver-side frontal air bag inflator may rupture during deployment.",
+      "Consequence": "An inflator rupture may result in metal fragments striking the driver, increasing the risk of injury.",
+      "Remedy": "Dealers will replace the driver-side frontal air bag inflator, free of charge.",
+      "ModelYear": "2018-2021",
+      "Make": "Example",
+      "Model": "Sample",
+      "PotentialNumberOfUnitsAffected": 12500
+    }
+  ]
+}

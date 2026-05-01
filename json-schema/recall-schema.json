@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/department-of-transportation/schemas/recall.json",
+  "title": "NHTSA Vehicle Recall",
+  "description": "A vehicle, equipment, child-seat, or tire recall record published by NHTSA.",
+  "type": "object",
+  "required": ["NHTSACampaignNumber", "Manufacturer"],
+  "properties": {
+    "NHTSACampaignNumber": { "type": "string", "description": "NHTSA recall campaign identifier" },
+    "Manufacturer": { "type": "string" },
+    "ReportReceivedDate": { "type": "string" },
+    "Component": { "type": "string" },
+    "Summary": { "type": "string" },
+    "Consequence": { "type": "string" },
+    "Remedy": { "type": "string" },
+    "Notes": { "type": ["string", "null"] },
+    "ModelYear": { "type": "string" },
+    "Make": { "type": "string" },
+    "Model": { "type": "string" },
+    "PotentialNumberOfUnitsAffected": { "type": ["string", "integer"] }
+  }
+}

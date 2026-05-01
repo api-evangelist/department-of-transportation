@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status API
+  description: >-
+    The Federal Aviation Administration's Airport Status / NAS Status web
+    services expose real-time status, weather, and delay information for major
+    U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/
+servers:
+  - url: https://soa.smext.faa.gov/asws/api/airport/status
+    description: FAA ASWS
+tags:
+  - name: Airport Status
+paths:
+  /{airportCode}:
+    get:
+      tags: [Airport Status]
+      summary: Get current status for an airport
+      operationId: getAirportStatus
+      parameters:
+        - name: airportCode
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: ^[A-Z]{3,4}$
+          description: IATA or ICAO airport code (e.g. JFK, KJFK)
+      responses:
+        '200':
+          description: Airport status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirportStatus'
+components:
+  schemas:
+    AirportStatus:
+      type: object
+      properties:
+        IATA:
+          type: string
+        Name:
+          type: string
+        State:
+          type: string
+        City:
+          type: string
+        Status:
+          type: object
+          properties:
+            ReasonCategoryCode:
+              type: string
+            Reason:
+              type: string
+            ClosureBegin:
+              type: string
+            ClosureEnd:
+              type: string
+            MinDelay:
+              type: string
+            AvgDelay:
+              type: string
+            MaxDelay:
+              type: string
+            Trend:
+              type: string
+            Type:
+              type: string
+        Weather:
+          type: object
+          properties:
+            Weather:
+              type: array
+              items:
+                type: object
+                properties:
+                  Temp:
+                    type: array
+                    items:
+                      type: string
+                  Wind:
+                    type: array
+                    items:
+                      type: string
+                  Visibility:
+                    type: array
+                    items:
+                      type: number
+                  Meta:
+                    type: array
+                    items:
+                      type: object

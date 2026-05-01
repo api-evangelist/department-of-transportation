@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dot": "https://api-evangelist.com/department-of-transportation/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Vehicle": {
+      "@id": "schema:Vehicle",
+      "@context": {
+        "VIN": { "@id": "schema:vehicleIdentificationNumber" },
+        "Make": "schema:brand",
+        "Model": "schema:model",
+        "ModelYear": { "@id": "schema:modelDate", "@type": "xsd:gYear" },
+        "FuelTypePrimary": "schema:fuelType",
+        "DriveType": "schema:driveWheelConfiguration",
+        "BodyClass": "schema:bodyType",
+        "Manufacturer": "schema:manufacturer"
+      }
+    },
+    "Recall": {
+      "@id": "dot:Recall",
+      "@context": {
+        "NHTSACampaignNumber": "schema:identifier",
+        "Manufacturer": "schema:manufacturer",
+        "Summary": "schema:description",
+        "ReportReceivedDate": { "@id": "dcterms:date", "@type": "xsd:date" },
+        "ModelYear": { "@id": "schema:modelDate", "@type": "xsd:gYear" }
+      }
+    },
+    "Carrier": {
+      "@id": "dot:MotorCarrier",
+      "@context": {
+        "dotNumber": "schema:identifier",
+        "legalName": "schema:legalName",
+        "dbaName": "schema:alternateName",
+        "telephone": "schema:telephone"
+      }
+    },
+    "Airport": {
+      "@id": "schema:Airport",
+      "@context": {
+        "IATA": "schema:iataCode",
+        "Name": "schema:name",
+        "State": "schema:addressRegion",
+        "City": "schema:addressLocality"
+      }
+    }
+  }
+}

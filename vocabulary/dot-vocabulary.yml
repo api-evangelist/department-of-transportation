@@ -1,0 +1,57 @@
+name: Department of Transportation Vocabulary
+description: >-
+  Controlled vocabulary covering domain concepts published by DOT operating
+  administrations - NHTSA (vehicles, recalls, ratings), FMCSA (motor
+  carriers, inspections), FAA (airports, airspace), FRA (rail), FTA
+  (transit), and BTS (transportation statistics).
+namespace: https://api-evangelist.com/department-of-transportation/vocab/
+prefix: dot
+terms:
+  - term: Vehicle
+    type: Class
+    definition: A motor vehicle uniquely identified by a 17-character VIN, decoded via NHTSA vPIC.
+  - term: Manufacturer
+    type: Class
+    definition: An organization that builds vehicles or vehicle equipment.
+  - term: WMI
+    type: Property
+    definition: World Manufacturer Identifier - first three characters of a VIN identifying the manufacturer.
+  - term: Recall
+    type: Class
+    definition: An NHTSA recall campaign affecting one or more vehicles, child-seats, tires, or pieces of equipment.
+  - term: Complaint
+    type: Class
+    definition: A consumer complaint filed with NHTSA's Office of Defects Investigation (ODI).
+  - term: Investigation
+    type: Class
+    definition: An ODI investigation into a potential vehicle defect.
+  - term: SafetyRating
+    type: Class
+    definition: A 5-Star Safety Rating assigned by NHTSA's New Car Assessment Program (NCAP).
+  - term: MotorCarrier
+    type: Class
+    definition: A commercial motor carrier registered with the FMCSA, identified by USDOT Number.
+  - term: USDOTNumber
+    type: Property
+    definition: Unique identifier assigned to a motor carrier by FMCSA.
+  - term: OperatingAuthority
+    type: Class
+    definition: FMCSA-issued authority allowing a carrier to operate (MC/MX/FF docket numbers).
+  - term: RoadsideInspection
+    type: Class
+    definition: An inspection of a commercial vehicle, driver, or hazmat shipment.
+  - term: Crash
+    type: Class
+    definition: A reportable crash involving a commercial motor vehicle.
+  - term: Airport
+    type: Class
+    definition: A public-use airport identified by IATA or ICAO code.
+  - term: AirspaceStatus
+    type: Class
+    definition: Real-time National Airspace System status, including ground stops and delays.
+  - term: TransitAgency
+    type: Class
+    definition: An FTA-recognized public-transportation provider.
+  - term: TransportationStatistic
+    type: Class
+    definition: A published statistical indicator from the Bureau of Transportation Statistics (BTS).

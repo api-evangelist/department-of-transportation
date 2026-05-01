@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: NHTSA Vehicle Safety API
+  description: >-
+    The National Highway Traffic Safety Administration's vehicle-safety APIs
+    expose recalls, complaints, investigations, and 5-Star Safety Ratings for
+    motor vehicles, child-safety seats, tires, and equipment. Endpoints are
+    public and return JSON.
+  version: '1'
+  contact:
+    name: NHTSA
+    url: https://www.nhtsa.gov/
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+externalDocs:
+  description: NHTSA APIs
+  url: https://api.nhtsa.gov/
+servers:
+  - url: https://api.nhtsa.gov
+    description: Production
+tags:
+  - name: Recalls
+    description: Vehicle, equipment, child seat, and tire recalls
+  - name: Complaints
+    description: Consumer complaint data
+  - name: Investigations
+    description: Defect investigations
+  - name: Ratings
+    description: 5-Star Safety Ratings
+paths:
+  /recalls/recallsByVehicle:
+    get:
+      tags: [Recalls]
+      summary: Look up recalls by make, model, and model year
+      operationId: getRecallsByVehicle
+      parameters:
+        - name: make
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: model
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: modelYear
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Recall list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecallResponse'
+  /recalls/campaignNumber:
+    get:
+      tags: [Recalls]
+      summary: Look up a recall by NHTSA campaign number
+      operationId: getRecallByCampaign
+      parameters:
+        - name: campaignNumber
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Campaign detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecallResponse'
+  /complaints/complaintsByVehicle:
+    get:
+      tags: [Complaints]
+      summary: Look up complaints by vehicle
+      operationId: getComplaintsByVehicle
+      parameters:
+        - name: make
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: model
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: modelYear
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Complaints
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplaintResponse'
+  /SafetyRatings/modelyear/{modelYear}/make/{make}/model/{model}:
+    get:
+      tags: [Ratings]
+      summary: 5-Star Safety Ratings for a vehicle
+      operationId: getSafetyRatings
+      parameters:
+        - name: modelYear
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: make
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: model
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Safety ratings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SafetyRatingsResponse'
+components:
+  schemas:
+    RecallResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recall'
+    Recall:
+      type: object
+      properties:
+        NHTSACampaignNumber:
+          type: string
+        Manufacturer:
+          type: string
+        ReportReceivedDate:
+          type: string
+        Component:
+          type: string
+        Summary:
+          type: string
+        Consequence:
+          type: string
+        Remedy:
+          type: string
+        Notes:
+          type: string
+        ModelYear:
+          type: string
+        Make:
+          type: string
+        Model:
+          type: string
+        PotentialNumberOfUnitsAffected:
+          type: ["string", "integer"]
+    ComplaintResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Complaint'
+    Complaint:
+      type: object
+      properties:
+        odiNumber:
+          type: string
+        manufacturer:
+          type: string
+        crash:
+          type: boolean
+        fire:
+          type: boolean
+        numberOfInjuries:
+          type: integer
+        numberOfDeaths:
+          type: integer
+        dateOfIncident:
+          type: string
+        dateComplaintFiled:
+          type: string
+        components:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+    SafetyRatingsResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              VehicleId:
+                type: integer
+              VehicleDescription:
+                type: string
+              OverallRating:
+                type: string
+              OverallFrontCrashRating:
+                type: string
+              OverallSideCrashRating:
+                type: string
+              RolloverRating:
+                type: string

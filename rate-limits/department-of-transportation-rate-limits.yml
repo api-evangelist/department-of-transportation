@@ -4,7 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Department of Transportation
 providerId: department-of-transportation
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Federal Government
   - Transportation
@@ -12,94 +13,48 @@ tags:
   - Aviation
   - Motor Carriers
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Department of Transportation API surface.
-  Captures per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold
-  values to be replaced with published provider limits.
+description: DOT APIs split into two regimes. NHTSA Vehicle Safety (api.nhtsa.gov) is fronted by api.data.gov,
+  which enforces a default 1,000-requests-per-hour limit per developer key (raisable via support). NHTSA
+  vPIC, FMCSA QCMobile, FAA Airport Status, and the BTS / FRA / FTA / PHMSA open data portals are unauthenticated
+  and bounded by fair-use rather than per-key quotas. api.data.gov surfaces 429 with X-RateLimit-* headers;
+  open endpoints use standard server throttling.
+sources:
+  - https://api.data.gov/docs/
+  - https://api.nhtsa.gov/
+  - https://vpic.nhtsa.dot.gov/api/
 headers:
   limit: X-RateLimit-Limit
   remaining: X-RateLimit-Remaining
   reset: X-RateLimit-Reset
   retryAfter: Retry-After
-  policy: RateLimit-Policy
 responseCodes:
   throttled: 429
   quotaExceeded: 429
   serviceUnavailable: 503
+  forbidden: 403
 limits:
-  - tier: free
-    name: Free Tier Default
+  - tier: api-data-gov
+    name: api.data.gov default per-key limit
     scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - NHTSA vPIC API
-      - NHTSA Vehicle Safety API
-      - FMCSA QCMobile API
-      - FAA Airport Status API
-      - Bureau of Transportation Statistics Data Portal
-      - Federal Railroad Administration Safety Data
-      - Federal Transit Administration National Transit Database
-      - PHMSA Pipeline Safety Data
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
+    metric: requests_per_hour
     limit: 1000
-    timeFrame: month
+    timeFrame: hour
     applies:
-      - NHTSA vPIC API
       - NHTSA Vehicle Safety API
-      - FMCSA QCMobile API
-      - FAA Airport Status API
-      - Bureau of Transportation Statistics Data Portal
-      - Federal Railroad Administration Safety Data
-      - Federal Transit Administration National Transit Database
-      - PHMSA Pipeline Safety Data
-  - tier: professional
-    name: Professional Tier Default
+  - tier: api-data-gov
+    name: api.data.gov increased limit (raise via support)
     scope: api-key
+    metric: requests_per_hour
+    limit: 'higher; request via api.data.gov support'
+    applies:
+      - NHTSA Vehicle Safety API
+  - tier: open
+    name: Open / fair-use throttle
+    scope: IP
     metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
+    limit: 'fair-use; not published'
     applies:
       - NHTSA vPIC API
-      - NHTSA Vehicle Safety API
-      - FMCSA QCMobile API
-      - FAA Airport Status API
-      - Bureau of Transportation Statistics Data Portal
-      - Federal Railroad Administration Safety Data
-      - Federal Transit Administration National Transit Database
-      - PHMSA Pipeline Safety Data
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - NHTSA vPIC API
-      - NHTSA Vehicle Safety API
-      - FMCSA QCMobile API
-      - FAA Airport Status API
-      - Bureau of Transportation Statistics Data Portal
-      - Federal Railroad Administration Safety Data
-      - Federal Transit Administration National Transit Database
-      - PHMSA Pipeline Safety Data
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - NHTSA vPIC API
-      - NHTSA Vehicle Safety API
       - FMCSA QCMobile API
       - FAA Airport Status API
       - Bureau of Transportation Statistics Data Portal
@@ -107,18 +62,21 @@ limits:
       - Federal Transit Administration National Transit Database
       - PHMSA Pipeline Safety Data
 policies:
+  - name: api.data.gov Key Pattern
+    description: NHTSA Vehicle Safety endpoints enforce limits at the api.data.gov gateway. Excess returns
+      429 with a JSON error and an OVER_RATE_LIMIT code. Increases must be requested via api.data.gov
+      support.
+  - name: NHTSA vPIC Bulk Pattern
+    description: NHTSA vPIC publishes downloadable vehicle data CSV / database snapshots; bulk consumers
+      should download the database refresh rather than iterate the REST API.
+  - name: FAA Airport Status Cadence
+    description: Airport status data refreshes on a short cadence (minutes); avoid sub-minute polling
+      since values change rarely outside weather and operational events.
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: On 429 / 503 implement exponential backoff with jitter, honoring Retry-After when present.
+  - name: Caching Encouragement
+    description: All DOT bureaus encourage caching of responses (vehicle data, airport status, motor-carrier
+      records) to reduce load on shared infrastructure.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

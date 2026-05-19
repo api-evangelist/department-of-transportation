@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FMCSA QCMobile API — Crashes
+  description: 'FMCSA QCMobile API — Crashes. 1 operations. Lead operation: Crash summary for a carrier. Self-contained Naftiko
+    capability covering one Department Of Transportation business surface.'
+  tags:
+  - Department Of Transportation
+  - Crashes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEPARTMENT_OF_TRANSPORTATION_API_KEY: DEPARTMENT_OF_TRANSPORTATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fmcsa-qcmobile-crashes
+    baseUri: https://mobile.fmcsa.dot.gov/qc/services
+    description: FMCSA QCMobile API — Crashes business capability. Self-contained, no shared references.
+    resources:
+    - name: carriers-dotNumber-crashes
+      path: /carriers/{dotNumber}/crashes
+      operations:
+      - name: getcrashes
+        method: GET
+        description: Crash summary for a carrier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dotNumber
+          in: path
+          type: integer
+          required: true
+    authentication:
+      type: apikey
+      key: webKey
+      value: '{{env.DEPARTMENT_OF_TRANSPORTATION_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: fmcsa-qcmobile-crashes-rest
+    port: 8080
+    description: REST adapter for FMCSA QCMobile API — Crashes. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/carriers/{dotnumber}/crashes
+      name: carriers-dotnumber-crashes
+      description: REST surface for carriers-dotNumber-crashes.
+      operations:
+      - method: GET
+        name: getcrashes
+        description: Crash summary for a carrier
+        call: fmcsa-qcmobile-crashes.getcrashes
+        with:
+          dotNumber: rest.dotNumber
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fmcsa-qcmobile-crashes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FMCSA QCMobile API — Crashes. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: crash-summary-carrier
+      description: Crash summary for a carrier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fmcsa-qcmobile-crashes.getcrashes
+      with:
+        dotNumber: tools.dotNumber
+      outputParameters:
+      - type: object
+        mapping: $.

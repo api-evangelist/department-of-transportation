@@ -1,0 +1,170 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NHTSA vPIC (Vehicle Product Information Catalog) API — VIN Decode
+  description: 'NHTSA vPIC (Vehicle Product Information Catalog) API — VIN Decode. 3 operations. Lead operation: Decode up
+    to 50 VINs in a single request. Self-contained Naftiko capability covering one Department Of Transportation business surface.'
+  tags:
+  - Department Of Transportation
+  - VIN Decode
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEPARTMENT_OF_TRANSPORTATION_API_KEY: DEPARTMENT_OF_TRANSPORTATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nhtsa-vpic-vin-decode
+    baseUri: https://vpic.nhtsa.dot.gov/api
+    description: NHTSA vPIC (Vehicle Product Information Catalog) API — VIN Decode business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: vehicles-DecodeVINValuesBatch
+      path: /vehicles/DecodeVINValuesBatch/
+      operations:
+      - name: decodevinbatch
+        method: POST
+        description: Decode up to 50 VINs in a single request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: vehicles-DecodeVin-vin
+      path: /vehicles/DecodeVin/{vin}
+      operations:
+      - name: decodevin
+        method: GET
+        description: Decode a VIN into key-value pairs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: vin
+          in: path
+          type: string
+          required: true
+        - name: modelyear
+          in: query
+          type: integer
+    - name: vehicles-DecodeVinValues-vin
+      path: /vehicles/DecodeVinValues/{vin}
+      operations:
+      - name: decodevinvalues
+        method: GET
+        description: Decode a VIN as a flat (single-row) record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: vin
+          in: path
+          type: string
+          required: true
+        - name: modelyear
+          in: query
+          type: integer
+  exposes:
+  - type: rest
+    namespace: nhtsa-vpic-vin-decode-rest
+    port: 8080
+    description: REST adapter for NHTSA vPIC (Vehicle Product Information Catalog) API — VIN Decode. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/vehicles/decodevinvaluesbatch
+      name: vehicles-decodevinvaluesbatch
+      description: REST surface for vehicles-DecodeVINValuesBatch.
+      operations:
+      - method: POST
+        name: decodevinbatch
+        description: Decode up to 50 VINs in a single request
+        call: nhtsa-vpic-vin-decode.decodevinbatch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/vehicles/decodevin/{vin}
+      name: vehicles-decodevin-vin
+      description: REST surface for vehicles-DecodeVin-vin.
+      operations:
+      - method: GET
+        name: decodevin
+        description: Decode a VIN into key-value pairs
+        call: nhtsa-vpic-vin-decode.decodevin
+        with:
+          vin: rest.vin
+          modelyear: rest.modelyear
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/vehicles/decodevinvalues/{vin}
+      name: vehicles-decodevinvalues-vin
+      description: REST surface for vehicles-DecodeVinValues-vin.
+      operations:
+      - method: GET
+        name: decodevinvalues
+        description: Decode a VIN as a flat (single-row) record
+        call: nhtsa-vpic-vin-decode.decodevinvalues
+        with:
+          vin: rest.vin
+          modelyear: rest.modelyear
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nhtsa-vpic-vin-decode-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NHTSA vPIC (Vehicle Product Information Catalog) API — VIN Decode. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: decode-up-50-vins-single
+      description: Decode up to 50 VINs in a single request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nhtsa-vpic-vin-decode.decodevinbatch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: decode-vin-key-value-pairs
+      description: Decode a VIN into key-value pairs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhtsa-vpic-vin-decode.decodevin
+      with:
+        vin: tools.vin
+        modelyear: tools.modelyear
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: decode-vin-flat-single-row
+      description: Decode a VIN as a flat (single-row) record
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhtsa-vpic-vin-decode.decodevinvalues
+      with:
+        vin: tools.vin
+        modelyear: tools.modelyear
+      outputParameters:
+      - type: object
+        mapping: $.

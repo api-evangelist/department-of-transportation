@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FMCSA QCMobile API — Inspections
+  description: 'FMCSA QCMobile API — Inspections. 1 operations. Lead operation: Roadside inspection summary for a carrier.
+    Self-contained Naftiko capability covering one Department Of Transportation business surface.'
+  tags:
+  - Department Of Transportation
+  - Inspections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEPARTMENT_OF_TRANSPORTATION_API_KEY: DEPARTMENT_OF_TRANSPORTATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fmcsa-qcmobile-inspections
+    baseUri: https://mobile.fmcsa.dot.gov/qc/services
+    description: FMCSA QCMobile API — Inspections business capability. Self-contained, no shared references.
+    resources:
+    - name: carriers-dotNumber-inspections
+      path: /carriers/{dotNumber}/inspections
+      operations:
+      - name: getinspections
+        method: GET
+        description: Roadside inspection summary for a carrier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dotNumber
+          in: path
+          type: integer
+          required: true
+    authentication:
+      type: apikey
+      key: webKey
+      value: '{{env.DEPARTMENT_OF_TRANSPORTATION_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: fmcsa-qcmobile-inspections-rest
+    port: 8080
+    description: REST adapter for FMCSA QCMobile API — Inspections. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/carriers/{dotnumber}/inspections
+      name: carriers-dotnumber-inspections
+      description: REST surface for carriers-dotNumber-inspections.
+      operations:
+      - method: GET
+        name: getinspections
+        description: Roadside inspection summary for a carrier
+        call: fmcsa-qcmobile-inspections.getinspections
+        with:
+          dotNumber: rest.dotNumber
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fmcsa-qcmobile-inspections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FMCSA QCMobile API — Inspections. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: roadside-inspection-summary-carrier
+      description: Roadside inspection summary for a carrier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fmcsa-qcmobile-inspections.getinspections
+      with:
+        dotNumber: tools.dotNumber
+      outputParameters:
+      - type: object
+        mapping: $.

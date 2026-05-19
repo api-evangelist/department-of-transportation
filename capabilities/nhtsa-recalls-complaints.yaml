@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NHTSA Vehicle Safety API — Complaints
+  description: 'NHTSA Vehicle Safety API — Complaints. 1 operations. Lead operation: Look up complaints by vehicle. Self-contained
+    Naftiko capability covering one Department Of Transportation business surface.'
+  tags:
+  - Department Of Transportation
+  - Complaints
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEPARTMENT_OF_TRANSPORTATION_API_KEY: DEPARTMENT_OF_TRANSPORTATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nhtsa-recalls-complaints
+    baseUri: https://api.nhtsa.gov
+    description: NHTSA Vehicle Safety API — Complaints business capability. Self-contained, no shared references.
+    resources:
+    - name: complaints-complaintsByVehicle
+      path: /complaints/complaintsByVehicle
+      operations:
+      - name: getcomplaintsbyvehicle
+        method: GET
+        description: Look up complaints by vehicle
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: make
+          in: query
+          type: string
+          required: true
+        - name: model
+          in: query
+          type: string
+          required: true
+        - name: modelYear
+          in: query
+          type: integer
+          required: true
+  exposes:
+  - type: rest
+    namespace: nhtsa-recalls-complaints-rest
+    port: 8080
+    description: REST adapter for NHTSA Vehicle Safety API — Complaints. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/complaints/complaintsbyvehicle
+      name: complaints-complaintsbyvehicle
+      description: REST surface for complaints-complaintsByVehicle.
+      operations:
+      - method: GET
+        name: getcomplaintsbyvehicle
+        description: Look up complaints by vehicle
+        call: nhtsa-recalls-complaints.getcomplaintsbyvehicle
+        with:
+          make: rest.make
+          model: rest.model
+          modelYear: rest.modelYear
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nhtsa-recalls-complaints-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NHTSA Vehicle Safety API — Complaints. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: look-up-complaints-vehicle
+      description: Look up complaints by vehicle
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhtsa-recalls-complaints.getcomplaintsbyvehicle
+      with:
+        make: tools.make
+        model: tools.model
+        modelYear: tools.modelYear
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,596 @@
+{
+  "item": [
+    {
+      "id": "8a2c4866-3057-48d8-a849-73d6c285f9c0",
+      "name": "Carriers",
+      "description": {
+        "content": "Motor carrier lookups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "517bec38-aced-463c-bba2-b500edfc5e54",
+          "name": "Look up a carrier by USDOT number",
+          "request": {
+            "name": "Look up a carrier by USDOT number",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":dotNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dotNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88bd6621-2b89-461a-a2bd-2d4e8ae1c9db",
+              "name": "Carrier record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":dotNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "webKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dotNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": {\n    \"carrier\": {\n      \"allowedToOperate\": \"N\",\n      \"dotNumber\": 4589,\n      \"legalName\": \"string\",\n      \"dbaName\": \"string\",\n      \"ein\": \"string\",\n      \"phyStreet\": \"string\",\n      \"phyCity\": \"string\",\n      \"phyState\": \"string\",\n      \"phyZipcode\": \"string\",\n      \"telephone\": \"string\",\n      \"totalDrivers\": 3196,\n      \"totalPowerUnits\": 3261,\n      \"statusCode\": \"string\",\n      \"mcs150Date\": \"1987-01-11\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5ed093b-3df2-4155-93b5-0f006375eeca",
+          "name": "Look up carriers by legal name",
+          "request": {
+            "name": "Look up carriers by legal name",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                "name",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "657b380e-e84a-4c3c-803e-906d2536d2b4",
+              "name": "Carrier records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    "name",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "webKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"carrier\": {\n        \"allowedToOperate\": \"N\",\n        \"dotNumber\": 8758,\n        \"legalName\": \"string\",\n        \"dbaName\": \"string\",\n        \"ein\": \"string\",\n        \"phyStreet\": \"string\",\n        \"phyCity\": \"string\",\n        \"phyState\": \"string\",\n        \"phyZipcode\": \"string\",\n        \"telephone\": \"string\",\n        \"totalDrivers\": 8729,\n        \"totalPowerUnits\": 4258,\n        \"statusCode\": \"string\",\n        \"mcs150Date\": \"1954-10-30\"\n      }\n    },\n    {\n      \"carrier\": {\n        \"allowedToOperate\": \"Y\",\n        \"dotNumber\": 2759,\n        \"legalName\": \"string\",\n        \"dbaName\": \"string\",\n        \"ein\": \"string\",\n        \"phyStreet\": \"string\",\n        \"phyCity\": \"string\",\n        \"phyState\": \"string\",\n        \"phyZipcode\": \"string\",\n        \"telephone\": \"string\",\n        \"totalDrivers\": 1980,\n        \"totalPowerUnits\": 5150,\n        \"statusCode\": \"string\",\n        \"mcs150Date\": \"1989-04-29\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b76e90a3-6d12-4982-9574-18b4eca4620e",
+      "name": "Authority",
+      "description": {
+        "content": "Operating authority records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "10f45754-a0b9-4c5d-9001-310cf9492208",
+          "name": "Look up a carrier by MC/MX docket number",
+          "request": {
+            "name": "Look up a carrier by MC/MX docket number",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                "docket-number",
+                ":docketNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "docketNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f62ef68-a825-4589-aeeb-6cb7b4fb76f6",
+              "name": "Carrier record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    "docket-number",
+                    ":docketNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "webKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "docketNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": {\n    \"carrier\": {\n      \"allowedToOperate\": \"N\",\n      \"dotNumber\": 4589,\n      \"legalName\": \"string\",\n      \"dbaName\": \"string\",\n      \"ein\": \"string\",\n      \"phyStreet\": \"string\",\n      \"phyCity\": \"string\",\n      \"phyState\": \"string\",\n      \"phyZipcode\": \"string\",\n      \"telephone\": \"string\",\n      \"totalDrivers\": 3196,\n      \"totalPowerUnits\": 3261,\n      \"statusCode\": \"string\",\n      \"mcs150Date\": \"1987-01-11\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a26e1a6-167b-431f-8cfb-dc67b4f9d1b6",
+          "name": "Operating authority for a carrier",
+          "request": {
+            "name": "Operating authority for a carrier",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":dotNumber",
+                "authority"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dotNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13a603dc-e5db-4b59-a2bd-c578921e1d66",
+              "name": "Authority record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":dotNumber",
+                    "authority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "webKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dotNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0b220bc6-081f-48ba-90cb-34c7ef4aadb3",
+      "name": "Inspections",
+      "description": {
+        "content": "Roadside inspection data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "744af9eb-62b2-4137-9d4d-975ac32f4c9b",
+          "name": "Roadside inspection summary for a carrier",
+          "request": {
+            "name": "Roadside inspection summary for a carrier",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":dotNumber",
+                "inspections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dotNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea54bfe3-f644-4fe6-83f8-407a3e293800",
+              "name": "Inspection summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":dotNumber",
+                    "inspections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "webKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dotNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "18957b59-c32d-4f30-b361-cd437abd42df",
+      "name": "Crashes",
+      "description": {
+        "content": "Crash data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c214ca0-c847-4324-9762-1d03de70d235",
+          "name": "Crash summary for a carrier",
+          "request": {
+            "name": "Crash summary for a carrier",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":dotNumber",
+                "crashes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dotNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b3da71c-1779-48a7-8419-05c4111b2668",
+              "name": "Crash summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":dotNumber",
+                    "crashes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "webKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dotNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://mobile.fmcsa.dot.gov/qc/services",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "webKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "187af001-b531-4a10-9323-5f2cda6ee284",
+    "name": "FMCSA QCMobile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Motor Carrier Safety Administration (FMCSA) QCMobile web services provide programmatic access to motor-carrier registration, operating-authority, safety-rating, and inspection data. Consumers can look up carriers by USDOT number, MC/MX number, or name, and retrieve related crash, inspection, and authority records.\n\nContact Support:\n Name: FMCSA",
+      "type": "text/plain"
+    }
+  }
+}

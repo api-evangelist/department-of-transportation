@@ -1,0 +1,470 @@
+{
+  "item": [
+    {
+      "id": "97e831ed-45d3-4105-b692-6d87b08e8f46",
+      "name": "Recalls",
+      "description": {
+        "content": "Vehicle, equipment, child seat, and tire recalls",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cb84f65e-373e-448a-bf36-71c32d1e1897",
+          "name": "Look up recalls by make, model, and model year",
+          "request": {
+            "name": "Look up recalls by make, model, and model year",
+            "description": {},
+            "url": {
+              "path": [
+                "recalls",
+                "recallsByVehicle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "modelYear",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d51ef9a9-84e8-46c2-9faf-ecad509062c5",
+              "name": "Recall list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recalls",
+                    "recallsByVehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modelYear",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 8881,\n  \"Message\": \"string\",\n  \"results\": [\n    {\n      \"NHTSACampaignNumber\": \"string\",\n      \"Manufacturer\": \"string\",\n      \"ReportReceivedDate\": \"string\",\n      \"Component\": \"string\",\n      \"Summary\": \"string\",\n      \"Consequence\": \"string\",\n      \"Remedy\": \"string\",\n      \"Notes\": \"string\",\n      \"ModelYear\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"PotentialNumberOfUnitsAffected\": \"string\"\n    },\n    {\n      \"NHTSACampaignNumber\": \"string\",\n      \"Manufacturer\": \"string\",\n      \"ReportReceivedDate\": \"string\",\n      \"Component\": \"string\",\n      \"Summary\": \"string\",\n      \"Consequence\": \"string\",\n      \"Remedy\": \"string\",\n      \"Notes\": \"string\",\n      \"ModelYear\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"PotentialNumberOfUnitsAffected\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2077257e-42e8-4871-84fc-2c164d320004",
+          "name": "Look up a recall by NHTSA campaign number",
+          "request": {
+            "name": "Look up a recall by NHTSA campaign number",
+            "description": {},
+            "url": {
+              "path": [
+                "recalls",
+                "campaignNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "campaignNumber",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc6023b4-b033-4aae-b6ee-68c38a859b15",
+              "name": "Campaign detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recalls",
+                    "campaignNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "campaignNumber",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 8881,\n  \"Message\": \"string\",\n  \"results\": [\n    {\n      \"NHTSACampaignNumber\": \"string\",\n      \"Manufacturer\": \"string\",\n      \"ReportReceivedDate\": \"string\",\n      \"Component\": \"string\",\n      \"Summary\": \"string\",\n      \"Consequence\": \"string\",\n      \"Remedy\": \"string\",\n      \"Notes\": \"string\",\n      \"ModelYear\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"PotentialNumberOfUnitsAffected\": \"string\"\n    },\n    {\n      \"NHTSACampaignNumber\": \"string\",\n      \"Manufacturer\": \"string\",\n      \"ReportReceivedDate\": \"string\",\n      \"Component\": \"string\",\n      \"Summary\": \"string\",\n      \"Consequence\": \"string\",\n      \"Remedy\": \"string\",\n      \"Notes\": \"string\",\n      \"ModelYear\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"PotentialNumberOfUnitsAffected\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d87fcdc2-e971-4185-b378-bca8f61a0988",
+      "name": "Complaints",
+      "description": {
+        "content": "Consumer complaint data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70dd5886-047c-44ef-85e0-e05a648b12bc",
+          "name": "Look up complaints by vehicle",
+          "request": {
+            "name": "Look up complaints by vehicle",
+            "description": {},
+            "url": {
+              "path": [
+                "complaints",
+                "complaintsByVehicle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "modelYear",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf496e32-c083-4b88-8bb2-7b8f771986a1",
+              "name": "Complaints",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "complaints",
+                    "complaintsByVehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modelYear",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 2931,\n  \"results\": [\n    {\n      \"odiNumber\": \"string\",\n      \"manufacturer\": \"string\",\n      \"crash\": true,\n      \"fire\": true,\n      \"numberOfInjuries\": 4826,\n      \"numberOfDeaths\": 5413,\n      \"dateOfIncident\": \"string\",\n      \"dateComplaintFiled\": \"string\",\n      \"components\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    },\n    {\n      \"odiNumber\": \"string\",\n      \"manufacturer\": \"string\",\n      \"crash\": true,\n      \"fire\": false,\n      \"numberOfInjuries\": 9489,\n      \"numberOfDeaths\": 7513,\n      \"dateOfIncident\": \"string\",\n      \"dateComplaintFiled\": \"string\",\n      \"components\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9a9b9c90-6b23-4b7b-a88d-a7edaf69653c",
+      "name": "Investigations",
+      "description": {
+        "content": "Defect investigations",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "4c4cd32f-63f0-475a-bd8e-7f821c3c1200",
+      "name": "Ratings",
+      "description": {
+        "content": "5-Star Safety Ratings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "637af6a4-6379-4be3-99f1-157e245ef16e",
+          "name": "5-Star Safety Ratings for a vehicle",
+          "request": {
+            "name": "5-Star Safety Ratings for a vehicle",
+            "description": {},
+            "url": {
+              "path": [
+                "SafetyRatings",
+                "modelyear",
+                ":modelYear",
+                "make",
+                ":make",
+                "model",
+                ":model"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "modelYear",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "make",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "model",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dea301a6-4870-4fbc-b84d-eab56f22951f",
+              "name": "Safety ratings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SafetyRatings",
+                    "modelyear",
+                    ":modelYear",
+                    "make",
+                    ":make",
+                    "model",
+                    ":model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelYear",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "make",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "model",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 7004,\n  \"Results\": [\n    {\n      \"VehicleId\": 9402,\n      \"VehicleDescription\": \"string\",\n      \"OverallRating\": \"string\",\n      \"OverallFrontCrashRating\": \"string\",\n      \"OverallSideCrashRating\": \"string\",\n      \"RolloverRating\": \"string\"\n    },\n    {\n      \"VehicleId\": 7700,\n      \"VehicleDescription\": \"string\",\n      \"OverallRating\": \"string\",\n      \"OverallFrontCrashRating\": \"string\",\n      \"OverallSideCrashRating\": \"string\",\n      \"RolloverRating\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nhtsa.gov",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e63f3dc2-1e57-483e-80ba-ae73303db763",
+    "name": "NHTSA Vehicle Safety API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The National Highway Traffic Safety Administration's vehicle-safety APIs expose recalls, complaints, investigations, and 5-Star Safety Ratings for motor vehicles, child-safety seats, tires, and equipment. Endpoints are public and return JSON.\n\nContact Support:\n Name: NHTSA",
+      "type": "text/plain"
+    }
+  }
+}

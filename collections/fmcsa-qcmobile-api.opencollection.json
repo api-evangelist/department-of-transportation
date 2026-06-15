@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FMCSA QCMobile API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "webKey",
+      "value": "{{webKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Carriers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up a carrier by USDOT number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mobile.fmcsa.dot.gov/qc/services/carriers/:dotNumber",
+            "params": [
+              {
+                "name": "dotNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Look up a carrier by USDOT number"
+        },
+        {
+          "info": {
+            "name": "Look up carriers by legal name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mobile.fmcsa.dot.gov/qc/services/carriers/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Look up carriers by legal name"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Authority",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up a carrier by MC/MX docket number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mobile.fmcsa.dot.gov/qc/services/carriers/docket-number/:docketNumber",
+            "params": [
+              {
+                "name": "docketNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Look up a carrier by MC/MX docket number"
+        },
+        {
+          "info": {
+            "name": "Operating authority for a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mobile.fmcsa.dot.gov/qc/services/carriers/:dotNumber/authority",
+            "params": [
+              {
+                "name": "dotNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Operating authority for a carrier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Inspections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Roadside inspection summary for a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mobile.fmcsa.dot.gov/qc/services/carriers/:dotNumber/inspections",
+            "params": [
+              {
+                "name": "dotNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Roadside inspection summary for a carrier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crashes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Crash summary for a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://mobile.fmcsa.dot.gov/qc/services/carriers/:dotNumber/crashes",
+            "params": [
+              {
+                "name": "dotNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Crash summary for a carrier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

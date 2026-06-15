@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NHTSA Vehicle Safety API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recalls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up recalls by make, model, and model year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nhtsa.gov/recalls/recallsByVehicle",
+            "params": [
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modelYear",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Look up recalls by make, model, and model year"
+        },
+        {
+          "info": {
+            "name": "Look up a recall by NHTSA campaign number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nhtsa.gov/recalls/campaignNumber",
+            "params": [
+              {
+                "name": "campaignNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Look up a recall by NHTSA campaign number"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Complaints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up complaints by vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle",
+            "params": [
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modelYear",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Look up complaints by vehicle"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ratings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "5-Star Safety Ratings for a vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nhtsa.gov/SafetyRatings/modelyear/:modelYear/make/:make/model/:model",
+            "params": [
+              {
+                "name": "modelYear",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "5-Star Safety Ratings for a vehicle"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

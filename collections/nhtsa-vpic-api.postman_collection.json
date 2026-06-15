@@ -1,0 +1,973 @@
+{
+  "item": [
+    {
+      "id": "66c29741-c842-46e3-8bff-4dcd2a9c9a54",
+      "name": "VIN Decode",
+      "description": {
+        "content": "Decode VINs into structured vehicle data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3391fa5-a1a9-4bbb-a87f-63c2729bb918",
+          "name": "Decode a VIN into key-value pairs",
+          "request": {
+            "name": "Decode a VIN into key-value pairs",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "DecodeVin",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44d6939c-8cc9-428f-8d54-92e9262b2d53",
+              "name": "Decoded VIN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "DecodeVin",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 3189,\n  \"Message\": \"string\",\n  \"SearchCriteria\": \"string\",\n  \"Results\": [\n    {\n      \"Value\": \"string\",\n      \"ValueId\": \"string\",\n      \"Variable\": \"string\",\n      \"VariableId\": 4849\n    },\n    {\n      \"Value\": \"string\",\n      \"ValueId\": \"string\",\n      \"Variable\": \"string\",\n      \"VariableId\": 2608\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3be9dd79-0c69-4d59-a440-5b6338d56147",
+          "name": "Decode a VIN as a flat (single-row) record",
+          "request": {
+            "name": "Decode a VIN as a flat (single-row) record",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "DecodeVinValues",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54689404-65f9-47a5-b7f1-bebb63d312b2",
+              "name": "Flat decoded VIN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "DecodeVinValues",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 5406,\n  \"Message\": \"string\",\n  \"Results\": [\n    {\n      \"key_0\": 2995.311633393045,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": 5308.772815740496\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f503461-4b31-490e-a270-d4c29b1dd467",
+          "name": "Decode up to 50 VINs in a single request",
+          "request": {
+            "name": "Decode up to 50 VINs in a single request",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "DecodeVINValuesBatch",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "Semicolon-delimited list of VINs (each followed by optional comma+modelyear)"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "12f4e5a4-8969-475a-97fd-988dd342de17",
+              "name": "Batch decode response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "DecodeVINValuesBatch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Semicolon-delimited list of VINs (each followed by optional comma+modelyear)",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 5406,\n  \"Message\": \"string\",\n  \"Results\": [\n    {\n      \"key_0\": 2995.311633393045,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": 5308.772815740496\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1ecd54f0-b587-4d07-a6db-75fae19571ec",
+      "name": "Makes",
+      "description": {
+        "content": "Vehicle makes",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ef2e2c5b-3d9b-4096-9e11-86e310fc84b1",
+          "name": "Get all vehicle makes",
+          "request": {
+            "name": "Get all vehicle makes",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetAllMakes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0eded3e9-c693-49ae-9afb-928d2639f0fd",
+              "name": "All vehicle makes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetAllMakes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 4276,\n  \"Results\": [\n    {\n      \"Make_ID\": 4105,\n      \"Make_Name\": \"string\"\n    },\n    {\n      \"Make_ID\": 126,\n      \"Make_Name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "24f50ca4-5d56-4838-b25c-98c77a27a0c3",
+      "name": "Models",
+      "description": {
+        "content": "Vehicle models",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62a983a9-bf34-4863-b9d0-a7bff4ffbbce",
+          "name": "Get models for a make",
+          "request": {
+            "name": "Get models for a make",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetModelsForMake",
+                ":makeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "makeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c16a708b-457c-4aac-813a-4a3c143aff36",
+              "name": "Models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetModelsForMake",
+                    ":makeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "makeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 9784,\n  \"Results\": [\n    {\n      \"Make_ID\": 4424,\n      \"Make_Name\": \"string\",\n      \"Model_ID\": 1931,\n      \"Model_Name\": \"string\"\n    },\n    {\n      \"Make_ID\": 7954,\n      \"Make_Name\": \"string\",\n      \"Model_ID\": 4933,\n      \"Model_Name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "344120b3-7724-4232-a645-d95248213e27",
+          "name": "Get models for a make in a given model year",
+          "request": {
+            "name": "Get models for a make in a given model year",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetModelsForMakeYear",
+                "make",
+                ":make",
+                "modelyear",
+                ":year"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "make",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dfa29daa-5093-40b3-83b3-d525bcebde64",
+              "name": "Models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetModelsForMakeYear",
+                    "make",
+                    ":make",
+                    "modelyear",
+                    ":year"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "make",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 9784,\n  \"Results\": [\n    {\n      \"Make_ID\": 4424,\n      \"Make_Name\": \"string\",\n      \"Model_ID\": 1931,\n      \"Model_Name\": \"string\"\n    },\n    {\n      \"Make_ID\": 7954,\n      \"Make_Name\": \"string\",\n      \"Model_ID\": 4933,\n      \"Model_Name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "85c785cb-a075-43fb-96d5-7070b42710ba",
+      "name": "Manufacturers",
+      "description": {
+        "content": "Vehicle manufacturers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bac6198a-bedc-45b0-96f4-55c4bfdf751e",
+          "name": "Get all manufacturers (paged 100 per page)",
+          "request": {
+            "name": "Get all manufacturers (paged 100 per page)",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetAllManufacturers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3384337-27d9-4b6f-9a21-dbcb9fdfa0dc",
+              "name": "Manufacturers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetAllManufacturers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 6371,\n  \"Results\": [\n    {\n      \"Mfr_ID\": 3918,\n      \"Mfr_Name\": \"string\",\n      \"Country\": \"string\"\n    },\n    {\n      \"Mfr_ID\": 169,\n      \"Mfr_Name\": \"string\",\n      \"Country\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "82d0ecc1-6c2e-49c1-958d-94df138160d5",
+      "name": "WMI",
+      "description": {
+        "content": "World Manufacturer Identifier (WMI) decoding",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ce34e75-3551-42a1-aade-ea14438d11e1",
+          "name": "Decode a World Manufacturer Identifier",
+          "request": {
+            "name": "Decode a World Manufacturer Identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "DecodeWMI",
+                ":wmi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "wmi",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44225e3a-c76f-4b58-ae37-40ab494c9ea7",
+              "name": "WMI decode result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "DecodeWMI",
+                    ":wmi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wmi",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 5406,\n  \"Message\": \"string\",\n  \"Results\": [\n    {\n      \"key_0\": 2995.311633393045,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": 5308.772815740496\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "eeb87333-128c-43f5-aaaa-e9483bef7e04",
+      "name": "Vehicle Variables",
+      "description": {
+        "content": "Vehicle variable definitions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7580a7c1-9668-44be-a21e-b7882736359a",
+          "name": "List vehicle variables",
+          "request": {
+            "name": "List vehicle variables",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetVehicleVariableList"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19f3d7f6-c27f-450a-8715-7926e5e6a7f7",
+              "name": "Variable list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetVehicleVariableList"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 3358,\n  \"Results\": [\n    {\n      \"ID\": 7012,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"DataType\": \"string\",\n      \"GroupName\": \"string\"\n    },\n    {\n      \"ID\": 3621,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"DataType\": \"string\",\n      \"GroupName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://vpic.nhtsa.dot.gov/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1cbde5c9-04d9-4b45-80be-beed3b4cea4e",
+    "name": "NHTSA vPIC (Vehicle Product Information Catalog) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The National Highway Traffic Safety Administration's Vehicle Product Information Catalog (vPIC) API decodes Vehicle Identification Numbers (VINs) and provides catalog data on makes, models, manufacturers, World Manufacturer Identifiers (WMI), and Canadian vehicle specifications. The service returns JSON, XML, or CSV via a public, key-less endpoint.\n\nContact Support:\n Name: NHTSA vPIC",
+      "type": "text/plain"
+    }
+  }
+}

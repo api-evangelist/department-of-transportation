@@ -44,7 +44,7 @@ apis:
         url: openapi/nhtsa-vpic-api-openapi.yml
       - type: JSONSchema
         url: json-schema/vehicle-schema.json
-      - type: Example
+      - type: Examples
         url: examples/vin-decode-example.json
   - aid: department-of-transportation:nhtsa-recalls-api
     name: NHTSA Vehicle Safety API
@@ -64,7 +64,7 @@ apis:
         url: openapi/nhtsa-recalls-api-openapi.yml
       - type: JSONSchema
         url: json-schema/recall-schema.json
-      - type: Example
+      - type: Examples
         url: examples/recall-example.json
   - aid: department-of-transportation:fmcsa-qcmobile-api
     name: FMCSA QCMobile API

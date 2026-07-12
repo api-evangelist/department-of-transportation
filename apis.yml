@@ -19,6 +19,10 @@ tags:
   - Aviation
   - Motor Carriers
 common:
+  - type: DomainSecurity
+    url: security/department-of-transportation-domain-security.yml
+  - type: Authentication
+    url: authentication/department-of-transportation-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/usdot
   - url: https://www.transportation.gov/

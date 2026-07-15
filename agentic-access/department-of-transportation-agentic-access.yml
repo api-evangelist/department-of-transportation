@@ -1,0 +1,223 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/faa-system-status-api-openapi.yml, openapi/fmcsa-qcmobile-api-openapi.yml, openapi/nhtsa-recalls-api-openapi.yml,
+  openapi/nhtsa-vpic-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 20
+  by_action_class:
+    connected: 19
+    acting: 1
+  by_consequence:
+    read: 19
+    write: 1
+  human_in_the_loop_required: 0
+operations:
+- path: /{airportCode}
+  method: get
+  operationId: getAirportStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /carriers/{dotNumber}
+  method: get
+  operationId: getCarrierByDotNumber
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /carriers/name/{name}
+  method: get
+  operationId: getCarriersByName
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /carriers/docket-number/{docketNumber}
+  method: get
+  operationId: getCarrierByDocket
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /carriers/{dotNumber}/authority
+  method: get
+  operationId: getAuthority
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /carriers/{dotNumber}/inspections
+  method: get
+  operationId: getInspections
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /carriers/{dotNumber}/crashes
+  method: get
+  operationId: getCrashes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /recalls/recallsByVehicle
+  method: get
+  operationId: getRecallsByVehicle
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /recalls/campaignNumber
+  method: get
+  operationId: getRecallByCampaign
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /complaints/complaintsByVehicle
+  method: get
+  operationId: getComplaintsByVehicle
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /SafetyRatings/modelyear/{modelYear}/make/{make}/model/{model}
+  method: get
+  operationId: getSafetyRatings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vehicles/DecodeVin/{vin}
+  method: get
+  operationId: decodeVin
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vehicles/DecodeVinValues/{vin}
+  method: get
+  operationId: decodeVinValues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vehicles/DecodeVINValuesBatch/
+  method: post
+  operationId: decodeVinBatch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /vehicles/GetAllMakes
+  method: get
+  operationId: getAllMakes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vehicles/GetModelsForMake/{makeName}
+  method: get
+  operationId: getModelsForMake
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vehicles/GetModelsForMakeYear/make/{make}/modelyear/{year}
+  method: get
+  operationId: getModelsForMakeYear
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vehicles/GetAllManufacturers
+  method: get
+  operationId: getAllManufacturers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vehicles/DecodeWMI/{wmi}
+  method: get
+  operationId: decodeWmi
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vehicles/GetVehicleVariableList
+  method: get
+  operationId: getVehicleVariableList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

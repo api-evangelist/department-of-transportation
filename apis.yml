@@ -19,6 +19,8 @@ tags:
   - Aviation
   - Motor Carriers
 common:
+  - type: AgenticAccess
+    url: agentic-access/department-of-transportation-agentic-access.yml
   - type: DomainSecurity
     url: security/department-of-transportation-domain-security.yml
   - type: Authentication

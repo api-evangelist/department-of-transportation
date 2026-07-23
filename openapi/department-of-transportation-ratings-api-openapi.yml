@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status Ratings API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: Ratings
+  description: 5-Star Safety Ratings
+paths:
+  /SafetyRatings/modelyear/{modelYear}/make/{make}/model/{model}:
+    get:
+      tags:
+      - Ratings
+      summary: 5-Star Safety Ratings for a vehicle
+      operationId: getSafetyRatings
+      parameters:
+      - name: modelYear
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: make
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: model
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Safety ratings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SafetyRatingsResponse'
+components:
+  schemas:
+    SafetyRatingsResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              VehicleId:
+                type: integer
+              VehicleDescription:
+                type: string
+              OverallRating:
+                type: string
+              OverallFrontCrashRating:
+                type: string
+              OverallSideCrashRating:
+                type: string
+              RolloverRating:
+                type: string
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

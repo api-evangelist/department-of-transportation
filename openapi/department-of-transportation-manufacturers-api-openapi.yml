@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status Manufacturers API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: Manufacturers
+  description: Vehicle manufacturers
+paths:
+  /vehicles/GetAllManufacturers:
+    get:
+      tags:
+      - Manufacturers
+      summary: Get all manufacturers (paged 100 per page)
+      operationId: getAllManufacturers
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Manufacturers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManufacturersResponse'
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        - xml
+        default: json
+  schemas:
+    ManufacturersResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              Mfr_ID:
+                type: integer
+              Mfr_Name:
+                type: string
+              Country:
+                type: string
+              VehicleTypes:
+                type: array
+                items:
+                  type: object
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

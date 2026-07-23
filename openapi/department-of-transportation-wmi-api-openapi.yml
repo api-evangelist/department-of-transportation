@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status WMI API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: WMI
+  description: World Manufacturer Identifier (WMI) decoding
+paths:
+  /vehicles/DecodeWMI/{wmi}:
+    get:
+      tags:
+      - WMI
+      summary: Decode a World Manufacturer Identifier
+      operationId: decodeWmi
+      parameters:
+      - name: wmi
+        in: path
+        required: true
+        schema:
+          type: string
+          minLength: 3
+          maxLength: 6
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: WMI decode result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VinDecodeFlatResponse'
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        - xml
+        default: json
+  schemas:
+    VinDecodeFlatResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        Results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status Recalls API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: Recalls
+  description: Vehicle, equipment, child seat, and tire recalls
+paths:
+  /recalls/recallsByVehicle:
+    get:
+      tags:
+      - Recalls
+      summary: Look up recalls by make, model, and model year
+      operationId: getRecallsByVehicle
+      parameters:
+      - name: make
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: model
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: modelYear
+        in: query
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Recall list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecallResponse'
+  /recalls/campaignNumber:
+    get:
+      tags:
+      - Recalls
+      summary: Look up a recall by NHTSA campaign number
+      operationId: getRecallByCampaign
+      parameters:
+      - name: campaignNumber
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Campaign detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecallResponse'
+components:
+  schemas:
+    RecallResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recall'
+    Recall:
+      type: object
+      properties:
+        NHTSACampaignNumber:
+          type: string
+        Manufacturer:
+          type: string
+        ReportReceivedDate:
+          type: string
+        Component:
+          type: string
+        Summary:
+          type: string
+        Consequence:
+          type: string
+        Remedy:
+          type: string
+        Notes:
+          type: string
+        ModelYear:
+          type: string
+        Make:
+          type: string
+        Model:
+          type: string
+        PotentialNumberOfUnitsAffected:
+          type:
+          - string
+          - integer
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

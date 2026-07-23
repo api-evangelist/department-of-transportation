@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status Crashes API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: Crashes
+  description: Crash data
+paths:
+  /carriers/{dotNumber}/crashes:
+    get:
+      tags:
+      - Crashes
+      summary: Crash summary for a carrier
+      operationId: getCrashes
+      parameters:
+      - name: dotNumber
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Crash summary
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

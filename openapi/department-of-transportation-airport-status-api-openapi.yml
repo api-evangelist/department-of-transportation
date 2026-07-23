@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
   title: FAA Airport Status API
-  description: >-
-    The Federal Aviation Administration's Airport Status / NAS Status web
-    services expose real-time status, weather, and delay information for major
-    U.S. airports and the National Airspace System.
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
   version: '1'
   contact:
     name: FAA
@@ -12,28 +9,26 @@ info:
   license:
     name: Public Domain
     url: https://creativecommons.org/publicdomain/mark/1.0/
-externalDocs:
-  description: FAA Airport Status
-  url: https://www.faa.gov/nextgen/programs/swim/
 servers:
-  - url: https://soa.smext.faa.gov/asws/api/airport/status
-    description: FAA ASWS
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
 tags:
-  - name: Airport Status
+- name: Airport Status
 paths:
   /{airportCode}:
     get:
-      tags: [Airport Status]
+      tags:
+      - Airport Status
       summary: Get current status for an airport
       operationId: getAirportStatus
       parameters:
-        - name: airportCode
-          in: path
-          required: true
-          schema:
-            type: string
-            pattern: ^[A-Z]{3,4}$
-          description: IATA or ICAO airport code (e.g. JFK, KJFK)
+      - name: airportCode
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{3,4}$
+        description: IATA or ICAO airport code (e.g. JFK, KJFK)
       responses:
         '200':
           description: Airport status
@@ -99,3 +94,6 @@ components:
                     type: array
                     items:
                       type: object
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status Complaints API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: Complaints
+  description: Consumer complaint data
+paths:
+  /complaints/complaintsByVehicle:
+    get:
+      tags:
+      - Complaints
+      summary: Look up complaints by vehicle
+      operationId: getComplaintsByVehicle
+      parameters:
+      - name: make
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: model
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: modelYear
+        in: query
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Complaints
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplaintResponse'
+components:
+  schemas:
+    ComplaintResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Complaint'
+    Complaint:
+      type: object
+      properties:
+        odiNumber:
+          type: string
+        manufacturer:
+          type: string
+        crash:
+          type: boolean
+        fire:
+          type: boolean
+        numberOfInjuries:
+          type: integer
+        numberOfDeaths:
+          type: integer
+        dateOfIncident:
+          type: string
+        dateComplaintFiled:
+          type: string
+        components:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

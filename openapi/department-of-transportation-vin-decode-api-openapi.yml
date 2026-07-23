@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status VIN Decode API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: VIN Decode
+  description: Decode VINs into structured vehicle data
+paths:
+  /vehicles/DecodeVin/{vin}:
+    get:
+      tags:
+      - VIN Decode
+      summary: Decode a VIN into key-value pairs
+      operationId: decodeVin
+      parameters:
+      - name: vin
+        in: path
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 17
+      - name: modelyear
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Decoded VIN
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VinDecodeResponse'
+  /vehicles/DecodeVinValues/{vin}:
+    get:
+      tags:
+      - VIN Decode
+      summary: Decode a VIN as a flat (single-row) record
+      operationId: decodeVinValues
+      parameters:
+      - name: vin
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: modelyear
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Flat decoded VIN
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VinDecodeFlatResponse'
+  /vehicles/DecodeVINValuesBatch/:
+    post:
+      tags:
+      - VIN Decode
+      summary: Decode up to 50 VINs in a single request
+      operationId: decodeVinBatch
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                  description: Semicolon-delimited list of VINs (each followed by optional comma+modelyear)
+                format:
+                  type: string
+                  enum:
+                  - json
+                  - csv
+                  - xml
+                  default: json
+      responses:
+        '200':
+          description: Batch decode response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VinDecodeFlatResponse'
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        - xml
+        default: json
+  schemas:
+    VinDecodeResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        SearchCriteria:
+          type: string
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              Value:
+                type:
+                - string
+                - 'null'
+              ValueId:
+                type:
+                - string
+                - 'null'
+              Variable:
+                type: string
+              VariableId:
+                type: integer
+    VinDecodeFlatResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        Results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

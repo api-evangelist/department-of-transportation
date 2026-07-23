@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status Vehicle Variables API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: Vehicle Variables
+  description: Vehicle variable definitions
+paths:
+  /vehicles/GetVehicleVariableList:
+    get:
+      tags:
+      - Vehicle Variables
+      summary: List vehicle variables
+      operationId: getVehicleVariableList
+      parameters:
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Variable list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleVariablesResponse'
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        - xml
+        default: json
+  schemas:
+    VehicleVariablesResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              ID:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DataType:
+                type: string
+              GroupName:
+                type:
+                - string
+                - 'null'
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

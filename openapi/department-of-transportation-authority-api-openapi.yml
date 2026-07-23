@@ -1,0 +1,102 @@
+openapi: 3.1.0
+info:
+  title: FAA Airport Status Authority API
+  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  version: '1'
+  contact:
+    name: FAA
+    url: https://www.faa.gov/data
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+servers:
+- url: https://soa.smext.faa.gov/asws/api/airport/status
+  description: FAA ASWS
+tags:
+- name: Authority
+  description: Operating authority records
+paths:
+  /carriers/docket-number/{docketNumber}:
+    get:
+      tags:
+      - Authority
+      summary: Look up a carrier by MC/MX docket number
+      operationId: getCarrierByDocket
+      parameters:
+      - name: docketNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Carrier record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarrierResponse'
+  /carriers/{dotNumber}/authority:
+    get:
+      tags:
+      - Authority
+      summary: Operating authority for a carrier
+      operationId: getAuthority
+      parameters:
+      - name: dotNumber
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Authority record
+components:
+  schemas:
+    Carrier:
+      type: object
+      properties:
+        carrier:
+          type: object
+          properties:
+            allowedToOperate:
+              type: string
+              enum:
+              - Y
+              - N
+            dotNumber:
+              type: integer
+            legalName:
+              type: string
+            dbaName:
+              type:
+              - string
+              - 'null'
+            ein:
+              type: string
+            phyStreet:
+              type: string
+            phyCity:
+              type: string
+            phyState:
+              type: string
+            phyZipcode:
+              type: string
+            telephone:
+              type: string
+            totalDrivers:
+              type: integer
+            totalPowerUnits:
+              type: integer
+            statusCode:
+              type: string
+            mcs150Date:
+              type: string
+              format: date
+    CarrierResponse:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Carrier'
+externalDocs:
+  description: FAA Airport Status
+  url: https://www.faa.gov/nextgen/programs/swim/

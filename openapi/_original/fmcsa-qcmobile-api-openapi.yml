@@ -1,0 +1,185 @@
+openapi: 3.1.0
+info:
+  title: FMCSA QCMobile API
+  description: >-
+    The Federal Motor Carrier Safety Administration (FMCSA) QCMobile web
+    services provide programmatic access to motor-carrier registration,
+    operating-authority, safety-rating, and inspection data. Consumers can
+    look up carriers by USDOT number, MC/MX number, or name, and retrieve
+    related crash, inspection, and authority records.
+  version: '1'
+  contact:
+    name: FMCSA
+    url: https://mobile.fmcsa.dot.gov/
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+externalDocs:
+  description: FMCSA QCMobile Web Services
+  url: https://mobile.fmcsa.dot.gov/qc/services/getting-started
+servers:
+  - url: https://mobile.fmcsa.dot.gov/qc/services
+    description: Production
+tags:
+  - name: Carriers
+    description: Motor carrier lookups
+  - name: Authority
+    description: Operating authority records
+  - name: Inspections
+    description: Roadside inspection data
+  - name: Crashes
+    description: Crash data
+security:
+  - WebKey: []
+paths:
+  /carriers/{dotNumber}:
+    get:
+      tags: [Carriers]
+      summary: Look up a carrier by USDOT number
+      operationId: getCarrierByDotNumber
+      parameters:
+        - name: dotNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Carrier record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarrierResponse'
+  /carriers/name/{name}:
+    get:
+      tags: [Carriers]
+      summary: Look up carriers by legal name
+      operationId: getCarriersByName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Carrier records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarrierListResponse'
+  /carriers/docket-number/{docketNumber}:
+    get:
+      tags: [Authority]
+      summary: Look up a carrier by MC/MX docket number
+      operationId: getCarrierByDocket
+      parameters:
+        - name: docketNumber
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Carrier record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarrierResponse'
+  /carriers/{dotNumber}/authority:
+    get:
+      tags: [Authority]
+      summary: Operating authority for a carrier
+      operationId: getAuthority
+      parameters:
+        - name: dotNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Authority record
+  /carriers/{dotNumber}/inspections:
+    get:
+      tags: [Inspections]
+      summary: Roadside inspection summary for a carrier
+      operationId: getInspections
+      parameters:
+        - name: dotNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Inspection summary
+  /carriers/{dotNumber}/crashes:
+    get:
+      tags: [Crashes]
+      summary: Crash summary for a carrier
+      operationId: getCrashes
+      parameters:
+        - name: dotNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Crash summary
+components:
+  securitySchemes:
+    WebKey:
+      type: apiKey
+      in: query
+      name: webKey
+  schemas:
+    CarrierResponse:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Carrier'
+    CarrierListResponse:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Carrier'
+    Carrier:
+      type: object
+      properties:
+        carrier:
+          type: object
+          properties:
+            allowedToOperate:
+              type: string
+              enum: ["Y", "N"]
+            dotNumber:
+              type: integer
+            legalName:
+              type: string
+            dbaName:
+              type: ["string", "null"]
+            ein:
+              type: string
+            phyStreet:
+              type: string
+            phyCity:
+              type: string
+            phyState:
+              type: string
+            phyZipcode:
+              type: string
+            telephone:
+              type: string
+            totalDrivers:
+              type: integer
+            totalPowerUnits:
+              type: integer
+            statusCode:
+              type: string
+            mcs150Date:
+              type: string
+              format: date

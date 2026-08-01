@@ -1,0 +1,337 @@
+openapi: 3.1.0
+info:
+  title: NHTSA vPIC (Vehicle Product Information Catalog) API
+  description: >-
+    The National Highway Traffic Safety Administration's Vehicle Product
+    Information Catalog (vPIC) API decodes Vehicle Identification Numbers
+    (VINs) and provides catalog data on makes, models, manufacturers, World
+    Manufacturer Identifiers (WMI), and Canadian vehicle specifications. The
+    service returns JSON, XML, or CSV via a public, key-less endpoint.
+  version: '1'
+  contact:
+    name: NHTSA vPIC
+    url: https://vpic.nhtsa.dot.gov/api/
+  license:
+    name: Public Domain
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+externalDocs:
+  description: vPIC API documentation
+  url: https://vpic.nhtsa.dot.gov/api/
+servers:
+  - url: https://vpic.nhtsa.dot.gov/api
+    description: Production
+tags:
+  - name: VIN Decode
+    description: Decode VINs into structured vehicle data
+  - name: Makes
+    description: Vehicle makes
+  - name: Models
+    description: Vehicle models
+  - name: Manufacturers
+    description: Vehicle manufacturers
+  - name: WMI
+    description: World Manufacturer Identifier (WMI) decoding
+  - name: Vehicle Variables
+    description: Vehicle variable definitions
+paths:
+  /vehicles/DecodeVin/{vin}:
+    get:
+      tags: [VIN Decode]
+      summary: Decode a VIN into key-value pairs
+      operationId: decodeVin
+      parameters:
+        - name: vin
+          in: path
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 17
+        - name: modelyear
+          in: query
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Decoded VIN
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VinDecodeResponse'
+  /vehicles/DecodeVinValues/{vin}:
+    get:
+      tags: [VIN Decode]
+      summary: Decode a VIN as a flat (single-row) record
+      operationId: decodeVinValues
+      parameters:
+        - name: vin
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: modelyear
+          in: query
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Flat decoded VIN
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VinDecodeFlatResponse'
+  /vehicles/DecodeVINValuesBatch/:
+    post:
+      tags: [VIN Decode]
+      summary: Decode up to 50 VINs in a single request
+      operationId: decodeVinBatch
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                  description: Semicolon-delimited list of VINs (each followed by optional comma+modelyear)
+                format:
+                  type: string
+                  enum: [json, csv, xml]
+                  default: json
+      responses:
+        '200':
+          description: Batch decode response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VinDecodeFlatResponse'
+  /vehicles/GetAllMakes:
+    get:
+      tags: [Makes]
+      summary: Get all vehicle makes
+      operationId: getAllMakes
+      parameters:
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: All vehicle makes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MakesResponse'
+  /vehicles/GetModelsForMake/{makeName}:
+    get:
+      tags: [Models]
+      summary: Get models for a make
+      operationId: getModelsForMake
+      parameters:
+        - name: makeName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelsResponse'
+  /vehicles/GetModelsForMakeYear/make/{make}/modelyear/{year}:
+    get:
+      tags: [Models]
+      summary: Get models for a make in a given model year
+      operationId: getModelsForMakeYear
+      parameters:
+        - name: make
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelsResponse'
+  /vehicles/GetAllManufacturers:
+    get:
+      tags: [Manufacturers]
+      summary: Get all manufacturers (paged 100 per page)
+      operationId: getAllManufacturers
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Manufacturers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManufacturersResponse'
+  /vehicles/DecodeWMI/{wmi}:
+    get:
+      tags: [WMI]
+      summary: Decode a World Manufacturer Identifier
+      operationId: decodeWmi
+      parameters:
+        - name: wmi
+          in: path
+          required: true
+          schema:
+            type: string
+            minLength: 3
+            maxLength: 6
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: WMI decode result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VinDecodeFlatResponse'
+  /vehicles/GetVehicleVariableList:
+    get:
+      tags: [Vehicle Variables]
+      summary: List vehicle variables
+      operationId: getVehicleVariableList
+      parameters:
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Variable list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleVariablesResponse'
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum: [json, csv, xml]
+        default: json
+  schemas:
+    VinDecodeResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        SearchCriteria:
+          type: string
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              Value:
+                type: ["string", "null"]
+              ValueId:
+                type: ["string", "null"]
+              Variable:
+                type: string
+              VariableId:
+                type: integer
+    VinDecodeFlatResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        Results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    MakesResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              Make_ID:
+                type: integer
+              Make_Name:
+                type: string
+    ModelsResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              Make_ID:
+                type: integer
+              Make_Name:
+                type: string
+              Model_ID:
+                type: integer
+              Model_Name:
+                type: string
+    ManufacturersResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              Mfr_ID:
+                type: integer
+              Mfr_Name:
+                type: string
+              Country:
+                type: string
+              VehicleTypes:
+                type: array
+                items:
+                  type: object
+    VehicleVariablesResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Results:
+          type: array
+          items:
+            type: object
+            properties:
+              ID:
+                type: integer
+              Name:
+                type: string
+              Description:
+                type: string
+              DataType:
+                type: string
+              GroupName:
+                type: ["string", "null"]

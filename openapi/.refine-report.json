@@ -1,0 +1,40 @@
+{
+  "provider": "department-of-transportation",
+  "sources": [
+    "department-of-transportation-airport-status-api-openapi.yml",
+    "department-of-transportation-authority-api-openapi.yml",
+    "department-of-transportation-carriers-api-openapi.yml",
+    "department-of-transportation-complaints-api-openapi.yml",
+    "department-of-transportation-crashes-api-openapi.yml",
+    "department-of-transportation-inspections-api-openapi.yml",
+    "department-of-transportation-makes-api-openapi.yml",
+    "department-of-transportation-manufacturers-api-openapi.yml",
+    "department-of-transportation-models-api-openapi.yml",
+    "department-of-transportation-ratings-api-openapi.yml",
+    "department-of-transportation-recalls-api-openapi.yml",
+    "department-of-transportation-vehicle-variables-api-openapi.yml",
+    "department-of-transportation-vin-decode-api-openapi.yml",
+    "department-of-transportation-wmi-api-openapi.yml"
+  ],
+  "outputs": [
+    "department-of-transportation-airport-status-api-openapi.yml",
+    "department-of-transportation-authority-api-openapi.yml",
+    "department-of-transportation-carriers-api-openapi.yml",
+    "department-of-transportation-complaints-api-openapi.yml",
+    "department-of-transportation-crashes-api-openapi.yml",
+    "department-of-transportation-inspections-api-openapi.yml",
+    "department-of-transportation-makes-api-openapi.yml",
+    "department-of-transportation-manufacturers-api-openapi.yml",
+    "department-of-transportation-models-api-openapi.yml",
+    "department-of-transportation-ratings-api-openapi.yml",
+    "department-of-transportation-recalls-api-openapi.yml",
+    "department-of-transportation-vehicle-variables-api-openapi.yml",
+    "department-of-transportation-vin-decode-api-openapi.yml",
+    "department-of-transportation-wmi-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

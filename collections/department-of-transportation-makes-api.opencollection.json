@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status Makes API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Makes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all vehicle makes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/vehicles/GetAllMakes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all vehicle makes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

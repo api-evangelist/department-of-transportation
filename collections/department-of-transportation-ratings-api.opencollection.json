@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status Ratings API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ratings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "5-Star Safety Ratings for a vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/SafetyRatings/modelyear/:modelYear/make/:make/model/:model",
+            "params": [
+              {
+                "name": "modelYear",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "5-Star Safety Ratings for a vehicle"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

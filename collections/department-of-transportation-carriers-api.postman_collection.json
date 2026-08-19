@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "84f9e93e-0365-4f78-a6b6-cbd81610e375",
+      "name": "Carriers",
+      "description": {
+        "content": "Motor carrier lookups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "051ed124-aa7d-4c02-9297-30fdc73bf1be",
+          "name": "Look up a carrier by USDOT number",
+          "request": {
+            "name": "Look up a carrier by USDOT number",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":dotNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dotNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02c7cf6b-df30-456c-b870-26f96d0c972f",
+              "name": "Carrier record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":dotNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dotNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": {\n    \"carrier\": {\n      \"allowedToOperate\": \"N\",\n      \"dotNumber\": 4943,\n      \"legalName\": \"string\",\n      \"dbaName\": \"string\",\n      \"ein\": \"string\",\n      \"phyStreet\": \"string\",\n      \"phyCity\": \"string\",\n      \"phyState\": \"string\",\n      \"phyZipcode\": \"string\",\n      \"telephone\": \"string\",\n      \"totalDrivers\": 442,\n      \"totalPowerUnits\": 1441,\n      \"statusCode\": \"string\",\n      \"mcs150Date\": \"2024-05-09\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "167f99f6-fbc7-401e-a907-719d31384cf5",
+          "name": "Look up carriers by legal name",
+          "request": {
+            "name": "Look up carriers by legal name",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                "name",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d46050a4-ef71-4ba2-8806-1e196c33b16f",
+              "name": "Carrier records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    "name",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"carrier\": {\n        \"allowedToOperate\": \"Y\",\n        \"dotNumber\": 8670,\n        \"legalName\": \"string\",\n        \"dbaName\": \"string\",\n        \"ein\": \"string\",\n        \"phyStreet\": \"string\",\n        \"phyCity\": \"string\",\n        \"phyState\": \"string\",\n        \"phyZipcode\": \"string\",\n        \"telephone\": \"string\",\n        \"totalDrivers\": 2358,\n        \"totalPowerUnits\": 2305,\n        \"statusCode\": \"string\",\n        \"mcs150Date\": \"1990-02-08\"\n      }\n    },\n    {\n      \"carrier\": {\n        \"allowedToOperate\": \"Y\",\n        \"dotNumber\": 4066,\n        \"legalName\": \"string\",\n        \"dbaName\": \"string\",\n        \"ein\": \"string\",\n        \"phyStreet\": \"string\",\n        \"phyCity\": \"string\",\n        \"phyState\": \"string\",\n        \"phyZipcode\": \"string\",\n        \"telephone\": \"string\",\n        \"totalDrivers\": 2872,\n        \"totalPowerUnits\": 3578,\n        \"statusCode\": \"string\",\n        \"mcs150Date\": \"1970-03-09\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b3ab992a-6d30-494c-a7e9-c07f1d740284",
+    "name": "FAA Airport Status Carriers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

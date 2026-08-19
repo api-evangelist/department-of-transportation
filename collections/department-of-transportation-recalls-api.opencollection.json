@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status Recalls API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recalls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up recalls by make, model, and model year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/recalls/recallsByVehicle",
+            "params": [
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modelYear",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Look up recalls by make, model, and model year"
+        },
+        {
+          "info": {
+            "name": "Look up a recall by NHTSA campaign number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/recalls/campaignNumber",
+            "params": [
+              {
+                "name": "campaignNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Look up a recall by NHTSA campaign number"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

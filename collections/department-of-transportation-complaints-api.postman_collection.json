@@ -1,0 +1,133 @@
+{
+  "item": [
+    {
+      "id": "58a01742-d994-4af2-8db0-56616f79650f",
+      "name": "Complaints",
+      "description": {
+        "content": "Consumer complaint data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3e6634b-7200-48d0-8f55-622e0cbed396",
+          "name": "Look up complaints by vehicle",
+          "request": {
+            "name": "Look up complaints by vehicle",
+            "description": {},
+            "url": {
+              "path": [
+                "complaints",
+                "complaintsByVehicle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "modelYear",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbf09309-1e29-4193-97cf-5fb562a3e79b",
+              "name": "Complaints",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "complaints",
+                    "complaintsByVehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modelYear",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 7880,\n  \"results\": [\n    {\n      \"odiNumber\": \"string\",\n      \"manufacturer\": \"string\",\n      \"crash\": true,\n      \"fire\": true,\n      \"numberOfInjuries\": 6163,\n      \"numberOfDeaths\": 1772,\n      \"dateOfIncident\": \"string\",\n      \"dateComplaintFiled\": \"string\",\n      \"components\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    },\n    {\n      \"odiNumber\": \"string\",\n      \"manufacturer\": \"string\",\n      \"crash\": false,\n      \"fire\": true,\n      \"numberOfInjuries\": 5931,\n      \"numberOfDeaths\": 685,\n      \"dateOfIncident\": \"string\",\n      \"dateComplaintFiled\": \"string\",\n      \"components\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "441c106f-3b0a-476f-8757-b29a3bea8ef3",
+    "name": "FAA Airport Status Complaints API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

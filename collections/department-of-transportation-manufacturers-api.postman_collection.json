@@ -1,0 +1,121 @@
+{
+  "item": [
+    {
+      "id": "f6701510-b21a-4f57-9861-6a34d3cde99f",
+      "name": "Manufacturers",
+      "description": {
+        "content": "Vehicle manufacturers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3336bd73-ec6b-495f-b509-5cf467914b51",
+          "name": "Get all manufacturers (paged 100 per page)",
+          "request": {
+            "name": "Get all manufacturers (paged 100 per page)",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetAllManufacturers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6dde4778-a514-485c-9bf2-b846169bb060",
+              "name": "Manufacturers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetAllManufacturers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 7715,\n  \"Results\": [\n    {\n      \"Mfr_ID\": 2704,\n      \"Mfr_Name\": \"string\",\n      \"Country\": \"string\"\n    },\n    {\n      \"Mfr_ID\": 1390,\n      \"Mfr_Name\": \"string\",\n      \"Country\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e7dc90f8-524e-4c0e-b6d5-ab9e129187e6",
+    "name": "FAA Airport Status Manufacturers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

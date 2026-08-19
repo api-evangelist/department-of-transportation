@@ -1,0 +1,194 @@
+{
+  "item": [
+    {
+      "id": "1aa13445-15db-4b66-9991-39b5dd814d89",
+      "name": "Authority",
+      "description": {
+        "content": "Operating authority records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "baf67fd2-a45f-493b-b445-5d3940c1525c",
+          "name": "Look up a carrier by MC/MX docket number",
+          "request": {
+            "name": "Look up a carrier by MC/MX docket number",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                "docket-number",
+                ":docketNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "docketNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a23a7de6-9401-4956-a5ae-5274d0dccb39",
+              "name": "Carrier record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    "docket-number",
+                    ":docketNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "docketNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": {\n    \"carrier\": {\n      \"allowedToOperate\": \"N\",\n      \"dotNumber\": 851,\n      \"legalName\": \"string\",\n      \"dbaName\": \"string\",\n      \"ein\": \"string\",\n      \"phyStreet\": \"string\",\n      \"phyCity\": \"string\",\n      \"phyState\": \"string\",\n      \"phyZipcode\": \"string\",\n      \"telephone\": \"string\",\n      \"totalDrivers\": 6230,\n      \"totalPowerUnits\": 1150,\n      \"statusCode\": \"string\",\n      \"mcs150Date\": \"1979-08-29\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da70b0c8-b185-479a-82f0-d6a75f9dd7b0",
+          "name": "Operating authority for a carrier",
+          "request": {
+            "name": "Operating authority for a carrier",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":dotNumber",
+                "authority"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dotNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "856e6758-2d04-467e-8fdd-d0baff724975",
+              "name": "Authority record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":dotNumber",
+                    "authority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dotNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "79eb09c0-1fa3-4279-a7f1-0ff7024c241f",
+    "name": "FAA Airport Status Authority API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

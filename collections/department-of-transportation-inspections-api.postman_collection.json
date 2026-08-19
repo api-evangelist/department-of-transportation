@@ -1,0 +1,107 @@
+{
+  "item": [
+    {
+      "id": "9b9507fa-6dea-4307-bb4c-aa607b23721e",
+      "name": "Inspections",
+      "description": {
+        "content": "Roadside inspection data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2f0be73-ad45-431c-af3d-43536a2c042d",
+          "name": "Roadside inspection summary for a carrier",
+          "request": {
+            "name": "Roadside inspection summary for a carrier",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":dotNumber",
+                "inspections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dotNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03007609-8268-49c0-b4e4-42fde2f9f637",
+              "name": "Inspection summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":dotNumber",
+                    "inspections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dotNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "86a16b49-482e-4481-8250-121650fdc622",
+    "name": "FAA Airport Status Inspections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

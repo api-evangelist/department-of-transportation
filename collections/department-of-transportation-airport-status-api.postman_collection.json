@@ -1,0 +1,115 @@
+{
+  "item": [
+    {
+      "id": "741a8574-7d79-4061-a43b-af6654c51565",
+      "name": "Airport Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f53f3fed-b9a0-4323-91f5-4864cd43dccb",
+          "name": "Get current status for an airport",
+          "request": {
+            "name": "Get current status for an airport",
+            "description": {},
+            "url": {
+              "path": [
+                ":airportCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "airportCode",
+                  "description": "(Required) IATA or ICAO airport code (e.g. JFK, KJFK)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1aed231-c133-4972-b345-86ae52e645b2",
+              "name": "Airport status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":airportCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "airportCode",
+                      "description": "(Required) IATA or ICAO airport code (e.g. JFK, KJFK)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"IATA\": \"string\",\n  \"Name\": \"string\",\n  \"State\": \"string\",\n  \"City\": \"string\",\n  \"Status\": {\n    \"ReasonCategoryCode\": \"string\",\n    \"Reason\": \"string\",\n    \"ClosureBegin\": \"string\",\n    \"ClosureEnd\": \"string\",\n    \"MinDelay\": \"string\",\n    \"AvgDelay\": \"string\",\n    \"MaxDelay\": \"string\",\n    \"Trend\": \"string\",\n    \"Type\": \"string\"\n  },\n  \"Weather\": {\n    \"Weather\": [\n      {\n        \"Temp\": [\n          \"string\",\n          \"string\"\n        ],\n        \"Wind\": [\n          \"string\",\n          \"string\"\n        ],\n        \"Visibility\": [\n          7963.154752800945,\n          564.192371584209\n        ]\n      },\n      {\n        \"Temp\": [\n          \"string\",\n          \"string\"\n        ],\n        \"Wind\": [\n          \"string\",\n          \"string\"\n        ],\n        \"Visibility\": [\n          4491.768713115488,\n          5874.88040541983\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8662bb16-b250-48e0-b893-93ad03488ffb",
+    "name": "FAA Airport Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status VIN Decode API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VIN Decode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Decode a VIN into key-value pairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/vehicles/DecodeVin/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Decode a VIN into key-value pairs"
+        },
+        {
+          "info": {
+            "name": "Decode a VIN as a flat (single-row) record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/vehicles/DecodeVinValues/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Decode a VIN as a flat (single-row) record"
+        },
+        {
+          "info": {
+            "name": "Decode up to 50 VINs in a single request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/vehicles/DecodeVINValuesBatch/",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "data",
+                  "value": ""
+                },
+                {
+                  "name": "format",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Decode up to 50 VINs in a single request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

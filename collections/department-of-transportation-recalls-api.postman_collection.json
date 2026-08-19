@@ -1,0 +1,214 @@
+{
+  "item": [
+    {
+      "id": "8d7026ea-8cde-425c-aaa9-2e18a75d7387",
+      "name": "Recalls",
+      "description": {
+        "content": "Vehicle, equipment, child seat, and tire recalls",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "072cc82b-618f-4fef-9303-57cf46bf285f",
+          "name": "Look up recalls by make, model, and model year",
+          "request": {
+            "name": "Look up recalls by make, model, and model year",
+            "description": {},
+            "url": {
+              "path": [
+                "recalls",
+                "recallsByVehicle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "modelYear",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e10f88c-261e-477c-ba92-9e54b7c5647f",
+              "name": "Recall list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recalls",
+                    "recallsByVehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modelYear",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 8060,\n  \"Message\": \"string\",\n  \"results\": [\n    {\n      \"NHTSACampaignNumber\": \"string\",\n      \"Manufacturer\": \"string\",\n      \"ReportReceivedDate\": \"string\",\n      \"Component\": \"string\",\n      \"Summary\": \"string\",\n      \"Consequence\": \"string\",\n      \"Remedy\": \"string\",\n      \"Notes\": \"string\",\n      \"ModelYear\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"PotentialNumberOfUnitsAffected\": \"string\"\n    },\n    {\n      \"NHTSACampaignNumber\": \"string\",\n      \"Manufacturer\": \"string\",\n      \"ReportReceivedDate\": \"string\",\n      \"Component\": \"string\",\n      \"Summary\": \"string\",\n      \"Consequence\": \"string\",\n      \"Remedy\": \"string\",\n      \"Notes\": \"string\",\n      \"ModelYear\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"PotentialNumberOfUnitsAffected\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b00474d-4f06-4189-9279-9bcd0e6c67e7",
+          "name": "Look up a recall by NHTSA campaign number",
+          "request": {
+            "name": "Look up a recall by NHTSA campaign number",
+            "description": {},
+            "url": {
+              "path": [
+                "recalls",
+                "campaignNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "campaignNumber",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1f48d15-b9a6-4134-826e-3c9fb4aeda2a",
+              "name": "Campaign detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recalls",
+                    "campaignNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "campaignNumber",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 8060,\n  \"Message\": \"string\",\n  \"results\": [\n    {\n      \"NHTSACampaignNumber\": \"string\",\n      \"Manufacturer\": \"string\",\n      \"ReportReceivedDate\": \"string\",\n      \"Component\": \"string\",\n      \"Summary\": \"string\",\n      \"Consequence\": \"string\",\n      \"Remedy\": \"string\",\n      \"Notes\": \"string\",\n      \"ModelYear\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"PotentialNumberOfUnitsAffected\": \"string\"\n    },\n    {\n      \"NHTSACampaignNumber\": \"string\",\n      \"Manufacturer\": \"string\",\n      \"ReportReceivedDate\": \"string\",\n      \"Component\": \"string\",\n      \"Summary\": \"string\",\n      \"Consequence\": \"string\",\n      \"Remedy\": \"string\",\n      \"Notes\": \"string\",\n      \"ModelYear\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"PotentialNumberOfUnitsAffected\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d519a0b5-355a-458f-b85f-7f155d7e5ad3",
+    "name": "FAA Airport Status Recalls API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

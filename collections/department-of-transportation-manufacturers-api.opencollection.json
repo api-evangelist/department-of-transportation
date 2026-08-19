@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status Manufacturers API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Manufacturers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all manufacturers (paged 100 per page)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/vehicles/GetAllManufacturers",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all manufacturers (paged 100 per page)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

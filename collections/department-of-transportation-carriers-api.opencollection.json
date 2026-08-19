@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status Carriers API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Carriers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up a carrier by USDOT number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/carriers/:dotNumber",
+            "params": [
+              {
+                "name": "dotNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Look up a carrier by USDOT number"
+        },
+        {
+          "info": {
+            "name": "Look up carriers by legal name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/carriers/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Look up carriers by legal name"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

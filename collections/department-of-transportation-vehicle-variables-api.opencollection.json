@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status Vehicle Variables API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vehicle Variables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List vehicle variables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/vehicles/GetVehicleVariableList",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List vehicle variables"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

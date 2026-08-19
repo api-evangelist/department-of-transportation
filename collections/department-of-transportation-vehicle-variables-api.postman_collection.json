@@ -1,0 +1,112 @@
+{
+  "item": [
+    {
+      "id": "e35be776-2c45-4e00-9bce-fb137c6328e1",
+      "name": "Vehicle Variables",
+      "description": {
+        "content": "Vehicle variable definitions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9d94dd7-0cd8-43fa-ba19-fa1af6661e1b",
+          "name": "List vehicle variables",
+          "request": {
+            "name": "List vehicle variables",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetVehicleVariableList"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b8c0d81-8b83-49a2-8fe6-6c7726610d0a",
+              "name": "Variable list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetVehicleVariableList"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 4504,\n  \"Results\": [\n    {\n      \"ID\": 9195,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"DataType\": \"string\",\n      \"GroupName\": \"string\"\n    },\n    {\n      \"ID\": 1648,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"DataType\": \"string\",\n      \"GroupName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cf48f202-8f21-453f-84ab-ccb42e462820",
+    "name": "FAA Airport Status Vehicle Variables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "item": [
+    {
+      "id": "0fd52d92-f7da-4f8b-8a25-e110a8e1a6f1",
+      "name": "Models",
+      "description": {
+        "content": "Vehicle models",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23ef7532-0908-4324-8a1d-93148f2698d7",
+          "name": "Get models for a make",
+          "request": {
+            "name": "Get models for a make",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetModelsForMake",
+                ":makeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "makeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5728448e-21cd-42bb-8158-8e9bf1b4442a",
+              "name": "Models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetModelsForMake",
+                    ":makeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "makeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 7646,\n  \"Results\": [\n    {\n      \"Make_ID\": 2198,\n      \"Make_Name\": \"string\",\n      \"Model_ID\": 2299,\n      \"Model_Name\": \"string\"\n    },\n    {\n      \"Make_ID\": 1509,\n      \"Make_Name\": \"string\",\n      \"Model_ID\": 624,\n      \"Model_Name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd888bbf-bb6a-45f9-b01d-c54d578dcaf2",
+          "name": "Get models for a make in a given model year",
+          "request": {
+            "name": "Get models for a make in a given model year",
+            "description": {},
+            "url": {
+              "path": [
+                "vehicles",
+                "GetModelsForMakeYear",
+                "make",
+                ":make",
+                "modelyear",
+                ":year"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "make",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2b9c980-995c-4954-9c35-2c690fb535ed",
+              "name": "Models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles",
+                    "GetModelsForMakeYear",
+                    "make",
+                    ":make",
+                    "modelyear",
+                    ":year"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "make",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Count\": 7646,\n  \"Results\": [\n    {\n      \"Make_ID\": 2198,\n      \"Make_Name\": \"string\",\n      \"Model_ID\": 2299,\n      \"Model_Name\": \"string\"\n    },\n    {\n      \"Make_ID\": 1509,\n      \"Make_Name\": \"string\",\n      \"Model_ID\": 624,\n      \"Model_Name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://soa.smext.faa.gov/asws/api/airport/status",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d91b0dd-067b-4650-8077-60650eada41b",
+    "name": "FAA Airport Status Models API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.\n\nContact Support:\n Name: FAA",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status Inspections API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inspections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Roadside inspection summary for a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/carriers/:dotNumber/inspections",
+            "params": [
+              {
+                "name": "dotNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Roadside inspection summary for a carrier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

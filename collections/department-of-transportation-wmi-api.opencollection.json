@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status WMI API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WMI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Decode a World Manufacturer Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/vehicles/DecodeWMI/:wmi",
+            "params": [
+              {
+                "name": "wmi",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Decode a World Manufacturer Identifier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

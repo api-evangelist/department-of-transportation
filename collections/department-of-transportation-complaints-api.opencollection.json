@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status Complaints API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Complaints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up complaints by vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/complaints/complaintsByVehicle",
+            "params": [
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "modelYear",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Look up complaints by vehicle"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

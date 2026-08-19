@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FAA Airport Status API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Airport Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current status for an airport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://soa.smext.faa.gov/asws/api/airport/status/:airportCode",
+            "params": [
+              {
+                "name": "airportCode",
+                "value": "",
+                "type": "path",
+                "description": "IATA or ICAO airport code (e.g. JFK, KJFK)"
+              }
+            ]
+          },
+          "docs": "Get current status for an airport"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

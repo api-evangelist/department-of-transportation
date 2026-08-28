@@ -5,6 +5,17 @@ description: >-
   PHMSA, and BTS - publish a number of public APIs covering vehicles, motor carriers, aviation, transit, freight, and
   transportation statistics.
 url: https://raw.githubusercontent.com/api-evangelist/department-of-transportation/main/apis.yml
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve

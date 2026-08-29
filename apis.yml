@@ -49,6 +49,9 @@ tags_raw:
   - Aviation
   - Motor Carriers
 common:
+  - type: CapabilityMap
+    url: capabilities/department-of-transportation-capability-edges.yml
+    name: Department of Transportation Business Capability Map
   - type: AgenticAccess
     url: agentic-access/department-of-transportation-agentic-access.yml
   - type: DomainSecurity

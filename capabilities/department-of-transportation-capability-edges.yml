@@ -1,0 +1,33 @@
+slug: department-of-transportation
+provider: Department of Transportation
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Public Sector & Government
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Inspections
+  spec_file: department-of-transportation-inspections-api-openapi.yml
+  capability_id: BC-3240.40
+  capability_id_l1: BC-3240
+  capability_name: Inspection and Compliance Verification
+  confidence: 0.78
+  evidence: GET /carriers/{dotNumber}/inspections  getInspections  Roadside inspection summary for a carrier
+  reason: Roadside inspection records against a regulated carrier are precisely inspection and compliance
+    verification of a licensed operator by a government regulator.
+- tag: Authority
+  spec_file: department-of-transportation-authority-api-openapi.yml
+  capability_id: BC-3240.60
+  capability_id_l1: BC-3240
+  capability_name: Licence Register Management
+  confidence: 0.75
+  evidence: GET /carriers/{dotNumber}/authority  getAuthority  Operating authority for a carrier
+  reason: FMCSA operating authority is a government-granted authorisation; the operations expose lookups
+    against the authority/docket register, matching licence register maintenance and disclosure.

@@ -1,40 +1,51 @@
 {
   "provider": "department-of-transportation",
   "sources": [
-    "department-of-transportation-airport-status-api-openapi.yml",
-    "department-of-transportation-authority-api-openapi.yml",
-    "department-of-transportation-carriers-api-openapi.yml",
-    "department-of-transportation-complaints-api-openapi.yml",
-    "department-of-transportation-crashes-api-openapi.yml",
-    "department-of-transportation-inspections-api-openapi.yml",
-    "department-of-transportation-makes-api-openapi.yml",
-    "department-of-transportation-manufacturers-api-openapi.yml",
-    "department-of-transportation-models-api-openapi.yml",
-    "department-of-transportation-ratings-api-openapi.yml",
-    "department-of-transportation-recalls-api-openapi.yml",
-    "department-of-transportation-vehicle-variables-api-openapi.yml",
-    "department-of-transportation-vin-decode-api-openapi.yml",
-    "department-of-transportation-wmi-api-openapi.yml"
+    "_original/faa-system-status-api-openapi.yml",
+    "_original/fmcsa-qcmobile-api-openapi.yml",
+    "_original/nhtsa-recalls-api-openapi.yml",
+    "_original/nhtsa-vpic-api-openapi.yml"
   ],
   "outputs": [
     "department-of-transportation-airport-status-api-openapi.yml",
     "department-of-transportation-authority-api-openapi.yml",
     "department-of-transportation-carriers-api-openapi.yml",
-    "department-of-transportation-complaints-api-openapi.yml",
     "department-of-transportation-crashes-api-openapi.yml",
     "department-of-transportation-inspections-api-openapi.yml",
+    "department-of-transportation-complaints-api-openapi.yml",
+    "department-of-transportation-ratings-api-openapi.yml",
+    "department-of-transportation-recalls-api-openapi.yml",
     "department-of-transportation-makes-api-openapi.yml",
     "department-of-transportation-manufacturers-api-openapi.yml",
     "department-of-transportation-models-api-openapi.yml",
-    "department-of-transportation-ratings-api-openapi.yml",
-    "department-of-transportation-recalls-api-openapi.yml",
-    "department-of-transportation-vehicle-variables-api-openapi.yml",
     "department-of-transportation-vin-decode-api-openapi.yml",
+    "department-of-transportation-vehicle-variables-api-openapi.yml",
     "department-of-transportation-wmi-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "faa-system-status-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "fmcsa-qcmobile-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "nhtsa-recalls-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "nhtsa-vpic-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "department-of-transportation-airport-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-authority-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-carriers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-complaints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-crashes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-inspections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-makes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-manufacturers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-ratings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-recalls-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-vehicle-variables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-vin-decode-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "department-of-transportation-wmi-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

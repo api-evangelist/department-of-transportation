@@ -1,17 +1,17 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: FAA Airport Status Ratings API
-  description: The Federal Aviation Administration's Airport Status / NAS Status web services expose real-time status, weather, and delay information for major U.S. airports and the National Airspace System.
+  title: NHTSA Vehicle Safety Ratings API
+  description: The National Highway Traffic Safety Administration's vehicle-safety APIs expose recalls, complaints, investigations, and 5-Star Safety Ratings for motor vehicles, child-safety seats, tires, and equipment. Endpoints are public and return JSON.
   version: '1'
   contact:
-    name: FAA
-    url: https://www.faa.gov/data
+    name: NHTSA
+    url: https://www.nhtsa.gov/
   license:
     name: Public Domain
     url: https://creativecommons.org/publicdomain/mark/1.0/
 servers:
-- url: https://soa.smext.faa.gov/asws/api/airport/status
-  description: FAA ASWS
+- url: https://api.nhtsa.gov
+  description: Production
 tags:
 - name: Ratings
   description: 5-Star Safety Ratings
@@ -70,5 +70,5 @@ components:
               RolloverRating:
                 type: string
 externalDocs:
-  description: FAA Airport Status
-  url: https://www.faa.gov/nextgen/programs/swim/
+  description: NHTSA APIs
+  url: https://api.nhtsa.gov/

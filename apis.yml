@@ -177,6 +177,8 @@ apis:
   humanURL: https://vpic.nhtsa.dot.gov/api/
   baseURL: https://vpic.nhtsa.dot.gov/api
   tags:
+  - Carrier
+  tags_raw:
   - Carriers
   properties:
   - type: OpenAPI
@@ -267,6 +269,8 @@ apis:
   humanURL: https://vpic.nhtsa.dot.gov/api/
   baseURL: https://vpic.nhtsa.dot.gov/api
   tags:
+  - Inspection
+  tags_raw:
   - Inspections
   properties:
   - type: OpenAPI
@@ -327,6 +331,8 @@ apis:
   humanURL: https://vpic.nhtsa.dot.gov/api/
   baseURL: https://vpic.nhtsa.dot.gov/api
   tags:
+  - Manufacturer
+  tags_raw:
   - Manufacturers
   properties:
   - type: OpenAPI

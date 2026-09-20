@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 2
+edge_count: 3
 edges:
 - tag: Inspections
   spec_file: department-of-transportation-inspections-api-openapi.yml
@@ -31,3 +31,16 @@ edges:
   evidence: GET /carriers/{dotNumber}/authority  getAuthority  Operating authority for a carrier
   reason: FMCSA operating authority is a government-granted authorisation; the operations expose lookups
     against the authority/docket register, matching licence register maintenance and disclosure.
+- tag: Recalls
+  spec_file: department-of-transportation-recalls-api-openapi.yml
+  capability_id: BC-3450.20
+  capability_id_l1: BC-3450
+  capability_name: Service Campaign and Recall Management
+  confidence: 0.72
+  evidence: GET /recalls/recallsByVehicle — "Look up recalls by make, model, and model year"; GET /recalls/campaignNumber
+    — "Look up a recall by NHTSA campaign number"
+  reason: The operations expose vehicle safety recall campaigns keyed by NHTSA campaign number and vehicle
+    make/model/year — the recall notification and lookup surface that supports service-campaign and recall
+    management. It is a regulator's read-only publication rather than an OEM's own recall workflow, so
+    confidence is moderate, but no other candidate covers vehicle recalls.
+  recovered_from: vertical-automotive-mobility-edges.json

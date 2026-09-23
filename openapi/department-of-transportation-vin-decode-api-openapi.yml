@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: NHTSA vPIC (Vehicle Product Information Catalog) VIN Decode API
+  title: NHTSA vPIC (Vehicle Product Information Catalog) VIN Decode…
   description: The National Highway Traffic Safety Administration's Vehicle Product Information Catalog (vPIC) API decodes Vehicle Identification Numbers (VINs) and provides catalog data on makes, models, manufacturers, World Manufacturer Identifiers (WMI), and Canadian vehicle specifications. The service returns JSON, XML, or CSV via a public, key-less endpoint.
   version: '1'
   contact:

@@ -1,4 +1,4 @@
-name: Department of Transportation API Rules
+x-name: Department of Transportation API Rules
 description: >-
   Rules and constraints governing access to DOT public APIs across NHTSA,
   FMCSA, and FAA.

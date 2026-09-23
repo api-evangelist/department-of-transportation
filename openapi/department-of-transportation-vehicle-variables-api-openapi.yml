@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: NHTSA vPIC (Vehicle Product Information Catalog) Vehicle Variables API
+  title: NHTSA vPIC (Vehicle Product Information Catalog) Vehicle…
   description: The National Highway Traffic Safety Administration's Vehicle Product Information Catalog (vPIC) API decodes Vehicle Identification Numbers (VINs) and provides catalog data on makes, models, manufacturers, World Manufacturer Identifiers (WMI), and Canadian vehicle specifications. The service returns JSON, XML, or CSV via a public, key-less endpoint.
   version: '1'
   contact:
@@ -32,6 +32,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/VehicleVariablesResponse'
 components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        - xml
+        default: json
   schemas:
     VehicleVariablesResponse:
       type: object
@@ -55,17 +66,6 @@ components:
                 type:
                 - string
                 - 'null'
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - csv
-        - xml
-        default: json
 externalDocs:
   description: vPIC API documentation
   url: https://vpic.nhtsa.dot.gov/api/

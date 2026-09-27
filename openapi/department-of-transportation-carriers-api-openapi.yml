@@ -98,11 +98,6 @@ components:
             mcs150Date:
               type: string
               format: date
-    CarrierResponse:
-      type: object
-      properties:
-        content:
-          $ref: '#/components/schemas/Carrier'
     CarrierListResponse:
       type: object
       properties:
@@ -110,6 +105,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Carrier'
+    CarrierResponse:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Carrier'
   securitySchemes:
     WebKey:
       type: apiKey

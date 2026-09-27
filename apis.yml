@@ -38,7 +38,7 @@ position: Consuming
 access: 3rd-Party
 specificationVersion: '0.23'
 tags:
-  - Federal-Government
+  - Federal Government
   - Transportation
   - Vehicles
   - Aviation
@@ -49,6 +49,7 @@ tags_raw:
   - Vehicles
   - Aviation
   - Motor Carriers
+  - Federal-Government
 common:
   - type: CapabilityMap
     url: capabilities/department-of-transportation-capability-edges.yml

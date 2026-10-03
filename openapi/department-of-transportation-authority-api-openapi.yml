@@ -54,6 +54,11 @@ paths:
           description: Authority record
 components:
   schemas:
+    CarrierResponse:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Carrier'
     Carrier:
       type: object
       properties:
@@ -94,11 +99,6 @@ components:
             mcs150Date:
               type: string
               format: date
-    CarrierResponse:
-      type: object
-      properties:
-        content:
-          $ref: '#/components/schemas/Carrier'
   securitySchemes:
     WebKey:
       type: apiKey

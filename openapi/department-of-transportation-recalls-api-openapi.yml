@@ -66,6 +66,17 @@ paths:
                 $ref: '#/components/schemas/RecallResponse'
 components:
   schemas:
+    RecallResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recall'
     Recall:
       type: object
       properties:
@@ -95,17 +106,6 @@ components:
           type:
           - string
           - integer
-    RecallResponse:
-      type: object
-      properties:
-        Count:
-          type: integer
-        Message:
-          type: string
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Recall'
 externalDocs:
   description: NHTSA APIs
   url: https://api.nhtsa.gov/

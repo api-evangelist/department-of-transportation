@@ -39,17 +39,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/VinDecodeFlatResponse'
 components:
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - csv
-        - xml
-        default: json
   schemas:
     VinDecodeFlatResponse:
       type: object
@@ -63,6 +52,17 @@ components:
           items:
             type: object
             additionalProperties: true
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        - xml
+        default: json
 externalDocs:
   description: vPIC API documentation
   url: https://vpic.nhtsa.dot.gov/api/

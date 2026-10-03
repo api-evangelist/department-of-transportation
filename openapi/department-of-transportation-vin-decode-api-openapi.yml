@@ -98,6 +98,18 @@ paths:
                 $ref: '#/components/schemas/VinDecodeFlatResponse'
 components:
   schemas:
+    VinDecodeFlatResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        Message:
+          type: string
+        Results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
     VinDecodeResponse:
       type: object
       properties:
@@ -124,18 +136,6 @@ components:
                 type: string
               VariableId:
                 type: integer
-    VinDecodeFlatResponse:
-      type: object
-      properties:
-        Count:
-          type: integer
-        Message:
-          type: string
-        Results:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
   parameters:
     Format:
       name: format

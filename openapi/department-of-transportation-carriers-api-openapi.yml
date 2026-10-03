@@ -58,6 +58,11 @@ paths:
                 $ref: '#/components/schemas/CarrierListResponse'
 components:
   schemas:
+    CarrierResponse:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Carrier'
     Carrier:
       type: object
       properties:
@@ -105,11 +110,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Carrier'
-    CarrierResponse:
-      type: object
-      properties:
-        content:
-          $ref: '#/components/schemas/Carrier'
   securitySchemes:
     WebKey:
       type: apiKey

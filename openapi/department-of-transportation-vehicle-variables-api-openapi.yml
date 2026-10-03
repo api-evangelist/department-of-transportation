@@ -32,17 +32,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/VehicleVariablesResponse'
 components:
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - csv
-        - xml
-        default: json
   schemas:
     VehicleVariablesResponse:
       type: object
@@ -66,6 +55,17 @@ components:
                 type:
                 - string
                 - 'null'
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        - xml
+        default: json
 externalDocs:
   description: vPIC API documentation
   url: https://vpic.nhtsa.dot.gov/api/

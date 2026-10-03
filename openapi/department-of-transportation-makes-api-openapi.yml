@@ -32,17 +32,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/MakesResponse'
 components:
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - csv
-        - xml
-        default: json
   schemas:
     MakesResponse:
       type: object
@@ -58,6 +47,17 @@ components:
                 type: integer
               Make_Name:
                 type: string
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        - xml
+        default: json
 externalDocs:
   description: vPIC API documentation
   url: https://vpic.nhtsa.dot.gov/api/

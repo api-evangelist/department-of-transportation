@@ -47,6 +47,15 @@ paths:
                 $ref: '#/components/schemas/ComplaintResponse'
 components:
   schemas:
+    ComplaintResponse:
+      type: object
+      properties:
+        Count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Complaint'
     Complaint:
       type: object
       properties:
@@ -72,15 +81,6 @@ components:
             type: string
         summary:
           type: string
-    ComplaintResponse:
-      type: object
-      properties:
-        Count:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Complaint'
 externalDocs:
   description: NHTSA APIs
   url: https://api.nhtsa.gov/

@@ -58,11 +58,13 @@ paths:
                 $ref: '#/components/schemas/CarrierListResponse'
 components:
   schemas:
-    CarrierResponse:
+    CarrierListResponse:
       type: object
       properties:
         content:
-          $ref: '#/components/schemas/Carrier'
+          type: array
+          items:
+            $ref: '#/components/schemas/Carrier'
     Carrier:
       type: object
       properties:
@@ -103,13 +105,11 @@ components:
             mcs150Date:
               type: string
               format: date
-    CarrierListResponse:
+    CarrierResponse:
       type: object
       properties:
         content:
-          type: array
-          items:
-            $ref: '#/components/schemas/Carrier'
+          $ref: '#/components/schemas/Carrier'
   securitySchemes:
     WebKey:
       type: apiKey

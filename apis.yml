@@ -51,6 +51,12 @@ tags_raw:
   - Motor Carriers
   - Federal-Government
 common:
+  - type: Plans
+    url: plans/department-of-transportation-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/department-of-transportation-rate-limits.yml
+  - type: FinOps
+    url: finops/department-of-transportation-finops.yml
   - type: CapabilityMap
     url: capabilities/department-of-transportation-capability-edges.yml
     name: Department of Transportation Business Capability Map

@@ -169,10 +169,8 @@ apis:
 unitEconomics:
   - name: Consumer Cost per 1K Requests
     metric: consumer_side_cost / (api_requests / 1000)
-    target: trend down via caching
   - name: Cache-Hit Ratio for VIN Decode
     metric: vin_cache_hits / vin_decodes
-    target: '> 0.9'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

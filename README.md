@@ -1,4 +1,4 @@
-# Department of Transportation (department-of-transportation)
+# Department of Transportation
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,213 +66,145 @@
 
 The U.S. Department of Transportation (DOT) and its operating administrations - NHTSA, FMCSA, FAA, FRA, FTA, MARAD, PHMSA, and BTS - publish a number of public APIs covering vehicles, motor carriers, aviation, transit, freight, and transportation statistics.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/department-of-transportation/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/department-of-transportation/main/apis.yml)
+**Areas:** Federal Government · Transportation · Vehicles · Aviation · Motor Carriers
 
-## Scope
+## Department of Transportation on APIs.io
 
-- **Type:** Index
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Department of Transportation is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/department-of-transportation/](https://apis.io/providers/department-of-transportation/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (18)
 
-- Federal Government
-- Transportation
-- Vehicles
-- Aviation
-- Motor Carriers
+- [Bureau of Transportation Statistics Data Portal](https://apis.io/apis/department-of-transportation/bts-data-portal/) — Public datasets and downloadable data products published by BTS.
+- [Federal Railroad Administration Safety Data](https://apis.io/apis/department-of-transportation/fra-safety-data/) — FRA Office of Safety Analysis - rail incident, accident, and inspection data.
+- [Federal Transit Administration National Transit Database](https://apis.io/apis/department-of-transportation/fta-ntd-api/) — Public-transportation operating, financial, and asset data submitted by transit agencies under the National Transit Database.
+- [PHMSA Pipeline Safety Data](https://apis.io/apis/department-of-transportation/phmsa-pipeline-data/) — Pipeline and Hazardous Materials Safety Administration incident, mileage, and operator data for U.S. pipelines.
+- [Department of Transportation Airport Status API](https://apis.io/apis/department-of-transportation/department-of-transportation-airport-status-api/) — The Airport Status API from Department of Transportation — 1 operation(s) for airport status.
+- [Department of Transportation Authority API](https://apis.io/apis/department-of-transportation/department-of-transportation-authority-api/) — Operating authority records
+- [Department of Transportation Carriers API](https://apis.io/apis/department-of-transportation/department-of-transportation-carriers-api/) — Motor carrier lookups
+- [Department of Transportation Complaints API](https://apis.io/apis/department-of-transportation/department-of-transportation-complaints-api/) — Consumer complaint data
+- [Department of Transportation Crashes API](https://apis.io/apis/department-of-transportation/department-of-transportation-crashes-api/) — Crash data
+- [Department of Transportation Inspections API](https://apis.io/apis/department-of-transportation/department-of-transportation-inspections-api/) — Roadside inspection data
+- [Department of Transportation Makes API](https://apis.io/apis/department-of-transportation/department-of-transportation-makes-api/) — Vehicle makes
+- [Department of Transportation Manufacturers API](https://apis.io/apis/department-of-transportation/department-of-transportation-manufacturers-api/) — Vehicle manufacturers
+- [Department of Transportation Models API](https://apis.io/apis/department-of-transportation/department-of-transportation-models-api/) — Vehicle models
+- [Department of Transportation Ratings API](https://apis.io/apis/department-of-transportation/department-of-transportation-ratings-api/) — 5-Star Safety Ratings
+- [Department of Transportation Recalls API](https://apis.io/apis/department-of-transportation/department-of-transportation-recalls-api/) — Vehicle, equipment, child seat, and tire recalls
+- [Department of Transportation Vehicle Variables API](https://apis.io/apis/department-of-transportation/department-of-transportation-vehicle-variables-api/) — Vehicle variable definitions
+- [Department of Transportation VIN Decode API](https://apis.io/apis/department-of-transportation/department-of-transportation-vin-decode-api/) — Decode VINs into structured vehicle data
+- [Department of Transportation WMI API](https://apis.io/apis/department-of-transportation/department-of-transportation-wmi-api/) — World Manufacturer Identifier (WMI) decoding
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-12-03
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### NHTSA vPIC API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Vehicle Product Information Catalog. Decode VINs and look up makes, models, manufacturers, and World Manufacturer Identifiers.
+- [Department Of Transportation Agentic Access](https://apis.io/agentic-access/department-of-transportation/department-of-transportation-agentic-access/)
 
-- **Human URL:** [https://vpic.nhtsa.dot.gov/api/](https://vpic.nhtsa.dot.gov/api/)
-- **Base URL:** `https://vpic.nhtsa.dot.gov/api`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- NHTSA
-- VIN
-- Vehicles
+- [Motor Carrier (FMCSA)](https://apis.io/schemas/department-of-transportation/carrier/)
+- [NHTSA Vehicle Recall](https://apis.io/schemas/department-of-transportation/recall/)
+- [Vehicle (NHTSA vPIC)](https://apis.io/schemas/department-of-transportation/vehicle/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://vpic.nhtsa.dot.gov/api/)
-- [OpenAPI](openapi/nhtsa-vpic-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nhtsa-vpic-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-vpic-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/vehicle-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/vin-decode-example.json)
+Linked-data contexts for the provider's vocabulary.
 
-### NHTSA Vehicle Safety API
+- [Dot Context](https://apis.io/jsonld/department-of-transportation/dot-context/)
 
-Vehicle, equipment, child-seat, and tire recalls; consumer complaints; defect investigations; 5-Star Safety Ratings.
+#### Vocabulary (1)
 
-- **Human URL:** [https://api.nhtsa.gov/](https://api.nhtsa.gov/)
-- **Base URL:** `https://api.nhtsa.gov`
+The provider's domain terms, defined.
 
-#### Tags
+- [Department of Transportation Vocabulary](https://apis.io/vocabularies/department-of-transportation/dot-vocabulary/)
 
-- NHTSA
-- Recalls
-- Safety
+#### Examples (2)
 
-#### Properties
+Example requests and responses.
 
-- [Documentation](https://api.nhtsa.gov/)
-- [OpenAPI](openapi/nhtsa-recalls-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nhtsa-recalls-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-recalls-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/recall-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/recall-example.json)
+- [Recall Example](https://apis.io/examples/department-of-transportation/recall-example/)
+- [Vin Decode Example](https://apis.io/examples/department-of-transportation/vin-decode-example/)
 
-### FMCSA QCMobile API
+#### Collections (18)
 
-Federal Motor Carrier Safety Administration carrier registration, operating-authority, inspection, and crash data.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://mobile.fmcsa.dot.gov/qc/services/getting-started](https://mobile.fmcsa.dot.gov/qc/services/getting-started)
-- **Base URL:** `https://mobile.fmcsa.dot.gov/qc/services`
+- [FAA Airport Status API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-airport-status-api/)
+- [FAA Airport Status Authority API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-authority-api/)
+- [FAA Airport Status Carriers API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-carriers-api/)
+- [FAA Airport Status Complaints API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-complaints-api/)
+- [FAA Airport Status Crashes API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-crashes-api/)
+- [FAA Airport Status Inspections API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-inspections-api/)
+- [FAA Airport Status Makes API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-makes-api/)
+- [FAA Airport Status Manufacturers API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-manufacturers-api/)
+- [FAA Airport Status Models API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-models-api/)
+- [FAA Airport Status Ratings API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-ratings-api/)
+- [FAA Airport Status Recalls API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-recalls-api/)
+- [FAA Airport Status Vehicle Variables API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-vehicle-variables-api/)
+- [FAA Airport Status VIN Decode API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-vin-decode-api/)
+- [FAA Airport Status WMI API](https://apis.io/collections/department-of-transportation/open-department-of-transportation-wmi-api/)
+- [FAA Airport Status API](https://apis.io/collections/department-of-transportation/open-faa-system-status-api/)
+- [FMCSA QCMobile API](https://apis.io/collections/department-of-transportation/open-fmcsa-qcmobile-api/)
+- [NHTSA Vehicle Safety API](https://apis.io/collections/department-of-transportation/open-nhtsa-recalls-api/)
+- [NHTSA vPIC (Vehicle Product Information Catalog) API](https://apis.io/collections/department-of-transportation/open-nhtsa-vpic-api/)
 
-#### Tags
+#### Governance rules (2)
 
-- FMCSA
-- Motor Carriers
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [Department of Transportation — jsonschema rules](https://apis.io/rules/department-of-transportation/department-of-transportation-jsonschema-spectral-rules/)
+- [Department of Transportation — dot rules](https://apis.io/rules/department-of-transportation/dot-rules/)
 
-- [Documentation](https://mobile.fmcsa.dot.gov/qc/services/getting-started)
-- [OpenAPI](openapi/fmcsa-qcmobile-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fmcsa-qcmobile-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fmcsa-qcmobile-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/carrier-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Authentication](https://mobile.fmcsa.dot.gov/qc/services/manage)
+#### Security (2)
 
-### FAA Airport Status API
+Authentication, trust centre, and vulnerability disclosure.
 
-Real-time airport status, weather, and delay information for major U.S. airports.
+- [Department Of Transportation Authentication](https://apis.io/security/department-of-transportation/department-of-transportation-authentication/)
+- [Department Of Transportation Domain Security](https://apis.io/security/department-of-transportation/department-of-transportation-domain-security/)
 
-- **Human URL:** [https://www.faa.gov/data](https://www.faa.gov/data)
-- **Base URL:** `https://soa.smext.faa.gov/asws/api/airport`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- FAA
-- Aviation
-- Airports
+- [Department Of Transportation Plans Pricing](https://apis.io/plans/department-of-transportation/department-of-transportation-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://www.faa.gov/data)
-- [OpenAPI](openapi/faa-system-status-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/faa-system-status-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/faa-system-status-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### Bureau of Transportation Statistics Data Portal
+- [Department Of Transportation Rate Limits](https://apis.io/rate-limits/department-of-transportation/department-of-transportation-rate-limits/)
 
-Public datasets and downloadable data products published by BTS.
+#### FinOps (1)
 
-- **Human URL:** [https://www.bts.gov/data-portals](https://www.bts.gov/data-portals)
+What the API costs to run, by operation.
 
-#### Tags
+- [Department Of Transportation Finops](https://apis.io/finops/department-of-transportation/department-of-transportation-finops/)
 
-- BTS
-- Statistics
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://www.bts.gov/data-portals)
-- [Postman Collection](collections/faa-system-status-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/faa-system-status-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/fmcsa-qcmobile-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fmcsa-qcmobile-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nhtsa-recalls-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-recalls-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nhtsa-vpic-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-vpic-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Federal Railroad Administration Safety Data
-
-FRA Office of Safety Analysis - rail incident, accident, and inspection data.
-
-- **Human URL:** [https://safetydata.fra.dot.gov/](https://safetydata.fra.dot.gov/)
-
-#### Tags
-
-- FRA
-- Rail
-
-#### Properties
-
-- [Documentation](https://safetydata.fra.dot.gov/OfficeofSafety/Default.aspx)
-- [Postman Collection](collections/faa-system-status-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/faa-system-status-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/fmcsa-qcmobile-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fmcsa-qcmobile-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nhtsa-recalls-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-recalls-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nhtsa-vpic-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-vpic-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Federal Transit Administration National Transit Database
-
-Public-transportation operating, financial, and asset data submitted by transit agencies under the National Transit Database.
-
-- **Human URL:** [https://www.transit.dot.gov/ntd](https://www.transit.dot.gov/ntd)
-
-#### Tags
-
-- FTA
-- Transit
-
-#### Properties
-
-- [Documentation](https://www.transit.dot.gov/ntd)
-- [Postman Collection](collections/faa-system-status-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/faa-system-status-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/fmcsa-qcmobile-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fmcsa-qcmobile-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nhtsa-recalls-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-recalls-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nhtsa-vpic-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-vpic-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PHMSA Pipeline Safety Data
-
-Pipeline and Hazardous Materials Safety Administration incident, mileage, and operator data for U.S. pipelines.
-
-- **Human URL:** [https://www.phmsa.dot.gov/data-and-statistics](https://www.phmsa.dot.gov/data-and-statistics)
-
-#### Tags
-
-- PHMSA
-- Pipelines
-
-#### Properties
-
-- [Documentation](https://www.phmsa.dot.gov/data-and-statistics)
-- [Postman Collection](collections/faa-system-status-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/faa-system-status-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/fmcsa-qcmobile-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fmcsa-qcmobile-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nhtsa-recalls-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-recalls-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/nhtsa-vpic-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nhtsa-vpic-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/usdot)
-- [Portal](https://www.transportation.gov/)
 - [Documentation](https://www.transportation.gov/digitalstrategy/developer)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Department of Transportation: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/department-of-transportation/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
